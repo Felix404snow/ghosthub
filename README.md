@@ -2,10 +2,13 @@
 
 # Ghost Hub
 
+---
 ## O que é?
 
 **Ghost Hub** é uma plataforma completa para automação de missões do Discord, gerenciamento de perfis, visualização de badges, Orbs e ferramentas exclusivas.
 # SITE OFICIAL: https://ghosthub.fun
+# DISCORD OFICIAL: https://discord.com/invite/GAZHndCknR
+---
 
 ## Arquivos
 
@@ -31,7 +34,7 @@
 - node-fetch
 
 ## Criadores
-
+### Temos orgulho de ser brasileiro! 🇧🇷
 ![Criadores](./quemsomos.js.png)
 
 ---

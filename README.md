@@ -46,6 +46,10 @@ O servidor sobe na porta **80** (ou na porta definida em `PORT`).
 - worker_threads
 - node-fetch
 
+## Criadores
+
+![Criadores](./quemsomos.png)
+
 ---
 
 @jsghost.png

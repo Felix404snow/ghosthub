@@ -48,5 +48,3 @@ O servidor sobe na porta **80** (ou na porta definida em `PORT`).
 - node-fetch
 
 ---
-
-**Ghost Hub** — Projeto privado.

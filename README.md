@@ -1,3 +1,5 @@
+![Ghost Hub Logo](./ghosthub.png)
+
 # Ghost Hub
 
 ## O que é?
@@ -10,6 +12,7 @@
 |---------|-----------|
 | `script.js` | **Backend principal — contém tudo.** Servidor Express, autenticação JWT, rate limiting, circuit breaker, integração com Discord selfbot, sistema de quests, workers multi-thread e proxy rotativo. |
 | `README.md` | Este arquivo — documentação do projeto |
+| `ghosthub.png` | Logo oficial do Ghost Hub |
 
 ## O que o script.js faz?
 
@@ -48,3 +51,5 @@ O servidor sobe na porta **80** (ou na porta definida em `PORT`).
 - node-fetch
 
 ---
+
+@jsghost.png

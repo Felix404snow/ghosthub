@@ -20,8 +20,6 @@
 - **Lista Orbs** — visualiza e gerencia seus Orbs do Discord
 - **Badges & Perfil** — mostra badges, infos de perfil e status
 - **Login com token Discord** via selfbot (discord.js-selfbot-v13)
-- **Workers multi-thread** — filas por rota com retry automático em 429
-- **Proxy rotativo** — alterna entre proxies para evitar bloqueios
 - **Dashboard web** — painel para controle visual
 
 ## Como usar

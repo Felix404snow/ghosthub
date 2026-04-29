@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost hub — Login</title>
+    <meta name="description" content="Login Ghost hub — Acesse sua conta para completar missões Discord automaticamente e usar todas as ferramentas.">
+    <meta name="keywords" content="login discord, ghost hub login, discord tools, missões discord, auto quest discord, discord quests, perfil discord, orbs discord">
+    <meta name="author" content="Ghost hub">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Ghost hub — Login">
+    <meta property="og:description" content="Acesse sua conta para completar missões Discord automaticamente e usar todas as ferramentas.">
+    <meta property="og:image" content="https://i.imgur.com/zNCp1IL.png">
+    <meta property="og:url" content="https://ghosthub.fun/login.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ghost hub">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ghost hub — Login">
+    <meta name="twitter:description" content="Acesse sua conta para completar missões Discord automaticamente e usar todas as ferramentas.">
+    <meta name="twitter:image" content="https://i.imgur.com/zNCp1IL.png">
+    <link rel="icon" type="image/png" href="https://ghosthub.shardweb.app/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black: #000;
+            --white: #fff;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .login-wrapper {
+            width: 100%;
+            max-width: 980px;
+            animation: fadeInUp 0.7s ease;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        .login-visual {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-visual img {
+            max-width: 300px;
+            width: 100%;
+            filter: drop-shadow(0 20px 40px rgba(255,255,255,0.06));
+            animation: float 5s ease-in-out infinite;
+        }
+        .login-card {
+            flex: 1;
+            background: rgba(20,20,20,0.6);
+            backdrop-filter: blur(24px) saturate(160%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 28px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+            padding: 48px 44px;
+        }
+        .logo-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .logo-icon-lg {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .logo-icon-lg img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .logo-text-lg {
+            font-size: 1.45rem;
+            font-weight: 800;
+        }
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.9rem;
+            margin-bottom: 28px;
+        }
+        .warning-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 14px 16px;
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        .warning-box strong {
+            color: rgba(255,255,255,0.7);
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 8px;
+        }
+        .input-wrap {
+            position: relative;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 14px 44px 14px 16px;
+            border: 1.5px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+            background: rgba(255,255,255,0.04);
+            transition: all 0.25s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.35);
+            box-shadow: 0 0 0 4px rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.08);
+        }
+        input::placeholder {
+            color: rgba(255,255,255,0.25);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .toggle-password {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: rgba(255,255,255,0.3);
+            font-size: 18px;
+            user-select: none;
+            transition: color 0.2s;
+        }
+        .toggle-password:hover { color: #fff; }
+        .btn {
+            padding: 10px 24px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+        }
+        .btn-primary {
+            background: linear-gradient(180deg, #3a3a3a 0%, #2a2a2a 100%);
+            color: #fff;
+            border: 1px solid #555;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 8px 32px rgba(0,0,0,0.25), 0 2px 8px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 50%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 100%);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.01);
+            background: linear-gradient(180deg, #4a4a4a 0%, #353535 100%);
+            border-color: #777;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 12px 40px rgba(0,0,0,0.35), 0 4px 12px rgba(0,0,0,0.25);
+        }
+        .btn-primary:active {
+            transform: translateY(0) scale(0.99);
+            background: linear-gradient(180deg, #333 0%, #222 100%);
+            box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset, 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .alert {
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: none;
+            animation: slideIn 0.3s ease;
+            margin-bottom: 16px;
+        }
+        .alert.error {
+            display: block;
+            color: #ff6b6b;
+        }
+        .alert.success {
+            display: block;
+            color: #86efac;
+        }
+        .btn-outline {
+            background: transparent;
+            color: rgba(255,255,255,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        /* ========== SLIDER ========== */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 56px;
+            background: linear-gradient(180deg, #2a2a2a 0%, #1f1f1f 100%);
+            border: 1px solid #444;
+            border-radius: 999px;
+            box-shadow: 0 1px 0 rgba(255,255,255,0.1) inset, 0 8px 24px rgba(0,0,0,0.3);
+            overflow: hidden;
+            user-select: none;
+            touch-action: none;
+            margin-top: 8px;
+        }
+        .slider-track {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.35);
+            pointer-events: none;
+        }
+        .slider-handle {
+            position: absolute;
+            top: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(180deg, #4a4a4a 0%, #333 100%);
+            border: 1px solid #666;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.15) inset, 0 0 0 rgba(255,255,255,0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            z-index: 2;
+            transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+        .slider-handle.glow-left {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.15) inset, -8px 0 24px rgba(255,80,80,0.35);
+            border-color: rgba(255,120,120,0.5);
+        }
+        .slider-handle.glow-right {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 1px 0 rgba(255,255,255,0.15) inset, 8px 0 24px rgba(80,255,80,0.35);
+            border-color: rgba(120,255,120,0.5);
+        }
+        .slider-handle:active {
+            cursor: grabbing;
+            background: linear-gradient(180deg, #555 0%, #3d3d3d 100%);
+        }
+        .slider-handle svg {
+            width: 20px;
+            height: 20px;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .slider-fill {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            background: linear-gradient(90deg, rgba(255,80,80,0.35) 0%, rgba(255,80,80,0.08) 60%, transparent 100%);
+            border-radius: 999px 0 0 999px;
+            transition: background 0.2s;
+            pointer-events: none;
+        }
+        .slider-fill.right {
+            left: 50%;
+            background: linear-gradient(90deg, transparent 0%, rgba(80,255,80,0.08) 40%, rgba(80,255,80,0.35) 100%);
+            border-radius: 0 999px 999px 0;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-16px); }
+        }
+        @keyframes slideUpToast {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .login-wrapper { flex-direction: column; gap: 32px; }
+            .login-visual { display: none; }
+            .login-card { padding: 36px 28px; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-visual">
+            <img src="https://ghosthub.shardweb.app/discordghost.png" alt="Ghost">
+        </div>
+        <div class="login-card">
+                <a href="/" class="logo-center">
+                    <div class="logo-icon-lg"><img src="https://ghosthub.shardweb.app/logo.png" alt="Ghost hub"></div>
+                    <span class="logo-text-lg">Ghost hub</span>
+                </a>
+                <p class="subtitle">Seja um fantasma. Seja ghost.</p>
+
+                <div class="warning-box">
+                    Não armazenamos nada. Seu token é processado localmente NA SUA MAQUINA e descartado assim que a sessão encerra, seja um fantasma! seja ghost!
+                </div>
+
+                <div id="alertBox" class="alert"></div>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="token">Token da Conta Discord</label>
+                        <div class="input-wrap">
+                            <input type="password" id="token" placeholder="Cole seu token aqui" required autocomplete="off">
+                            <span class="toggle-password" onclick="togglePassword()">👁</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display:flex;justify-content:center;margin-bottom:18px;">
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAADFIWq5tgeIHdOw4" data-theme="dark"></div>
+                    </div>
+
+                    <div class="slider-container" id="sliderContainer">
+                        <div class="slider-track">
+                            <span>Voltar</span>
+                            <span>Conectar</span>
+                        </div>
+                        <div class="slider-fill" id="sliderFill"></div>
+                        <div class="slider-handle" id="sliderHandle"></div>
+                    </div>
+                </form>
+                <div style="margin-top: 18px; text-align: center;">
+                    <a href="https://discord.gg/GAZHndCknR" target="_blank" style="color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s;">Precisa de ajuda? Entre no nosso Discord</a>
+                </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const input = document.getElementById('token');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+
+        // Limpar tokens antigos no início
+        localStorage.removeItem('discord_token');
+
+        async function doLogin() {
+            const token = document.getElementById('token').value.trim();
+            const alertBox = document.getElementById('alertBox');
+            const handle = document.getElementById('sliderHandle');
+
+            // Pega o response do Turnstile
+            const turnstileResponse = document.querySelector('input[name="cf-turnstile-response"]')?.value || '';
+
+            alertBox.className = 'alert';
+            alertBox.style.display = 'none';
+            handle.style.cursor = 'default';
+
+            if (!turnstileResponse) {
+                alertBox.className = 'alert error';
+                alertBox.innerHTML = 'Resolva o captcha antes de continuar.';
+                alertBox.style.display = 'block';
+                resetSlider();
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/connect', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ token, cfTurnstileResponse: turnstileResponse })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    localStorage.setItem('site_token', data.siteToken);
+                    localStorage.removeItem('discord_token'); // limpa legado
+                    alertBox.className = 'alert success';
+                    alertBox.innerHTML = `Conectado como <strong>${escapeHtml(data.username)}</strong>. Redirecionando...`;
+                    alertBox.style.display = 'block';
+                    setTimeout(() => window.location.href = '/dashboard', 1200);
+                } else {
+                    alertBox.className = 'alert error';
+                    alertBox.innerHTML = escapeHtml(data.error || 'Erro ao conectar');
+                    alertBox.style.display = 'block';
+                    resetSlider();
+                    // Reset turnstile
+                    if (window.turnstile) turnstile.reset();
+                }
+            } catch (err) {
+                alertBox.className = 'alert error';
+                const msg = (err.message || '').toLowerCase();
+                if (msg.includes('timeout') || msg.includes('time out') || msg.includes('timed out')) {
+                    alertBox.innerHTML = 'O servidor demorou para responder. Tente novamente em alguns segundos.';
+                } else if (msg.includes('fetch') || msg.includes('network') || msg.includes('failed')) {
+                    alertBox.innerHTML = 'Não foi possível conectar ao servidor. Verifique sua internet e tente novamente.';
+                } else {
+                    alertBox.innerHTML = `Erro de conexão: ${escapeHtml(err.message)}`;
+                }
+                alertBox.style.display = 'block';
+                resetSlider();
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        /* ========== SLIDER DRAG ========== */
+        const sliderContainer = document.getElementById('sliderContainer');
+        const sliderHandle = document.getElementById('sliderHandle');
+        const sliderFill = document.getElementById('sliderFill');
+        let isDragging = false;
+        let hasMoved = false;
+        let dragStartX = 0;
+        let startX = 0;
+        let currentX = 0;
+        let containerWidth = 0;
+        let handleWidth = 0;
+
+        function resetSlider() {
+            sliderHandle.style.transition = 'left 0.3s ease, transform 0.3s ease';
+            sliderHandle.style.left = '50%';
+            sliderHandle.style.transform = 'translateX(-50%)';
+            sliderFill.style.transition = 'width 0.3s ease, left 0.3s ease, opacity 0.3s ease';
+            sliderFill.style.width = '0';
+            sliderFill.style.left = '50%';
+            sliderFill.style.opacity = '0';
+            sliderFill.className = 'slider-fill';
+            sliderHandle.style.cursor = 'grab';
+            sliderHandle.classList.remove('glow-left', 'glow-right');
+            setTimeout(() => {
+                sliderHandle.style.transition = '';
+                sliderFill.style.transition = '';
+            }, 300);
+        }
+
+        function onStart(clientX) {
+            containerWidth = sliderContainer.offsetWidth;
+            handleWidth = sliderHandle.offsetWidth;
+            dragStartX = clientX;
+            hasMoved = false;
+            isDragging = true;
+            sliderHandle.style.transition = 'none';
+            sliderFill.style.transition = 'none';
+            sliderHandle.style.cursor = 'grabbing';
+        }
+
+        function onMove(clientX) {
+            if (!isDragging) return;
+            if (Math.abs(clientX - dragStartX) > 5) hasMoved = true;
+            const deltaX = clientX - dragStartX;
+            const maxOffset = (containerWidth - handleWidth) / 2 - 8;
+            const x = Math.max(-maxOffset, Math.min(maxOffset, deltaX));
+            currentX = x;
+
+            const center = containerWidth / 2;
+            const percent = x / maxOffset;
+
+            sliderHandle.style.left = `${center + x}px`;
+            sliderHandle.style.transform = 'translateX(-50%)';
+
+            const opacity = Math.min(1, Math.max(0, (Math.abs(x) - 10) / 30));
+            sliderFill.style.opacity = String(opacity);
+
+            if (percent > 0) {
+                sliderFill.className = 'slider-fill right';
+                sliderFill.style.left = '50%';
+                sliderFill.style.width = `${Math.abs(x) + 20}px`;
+                sliderHandle.classList.remove('glow-left');
+                sliderHandle.classList.add('glow-right');
+            } else {
+                sliderFill.className = 'slider-fill';
+                sliderFill.style.left = `${center + x - 20}px`;
+                sliderFill.style.width = `${Math.abs(x) + 20}px`;
+                sliderHandle.classList.remove('glow-right');
+                sliderHandle.classList.add('glow-left');
+            }
+        }
+
+        function onEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            if (!hasMoved) {
+                resetSlider();
+                return;
+            }
+            const maxOffset = (containerWidth - handleWidth) / 2;
+            const percent = currentX / maxOffset;
+
+            if (percent > 0.75) {
+                const token = document.getElementById('token').value.trim();
+                if (!token) {
+                    const alertBox = document.getElementById('alertBox');
+                    alertBox.className = 'alert error';
+                    alertBox.innerHTML = 'Cole seu token primeiro';
+                    alertBox.style.display = 'block';
+                    resetSlider();
+                    return;
+                }
+                sliderHandle.style.transition = 'left 0.2s ease';
+                sliderHandle.style.left = `${sliderContainer.offsetWidth - handleWidth / 2 - 8}px`;
+                sliderFill.style.transition = 'width 0.2s ease';
+                sliderFill.style.width = `${sliderContainer.offsetWidth / 2}px`;
+                doLogin();
+            } else if (percent < -0.75) {
+                sliderHandle.style.transition = 'left 0.2s ease';
+                sliderHandle.style.left = `${handleWidth / 2 + 8}px`;
+                sliderFill.style.transition = 'width 0.2s ease';
+                sliderFill.style.width = `${sliderContainer.offsetWidth / 2}px`;
+                setTimeout(() => window.location.href = '/', 200);
+            } else {
+                resetSlider();
+            }
+        }
+
+        sliderHandle.addEventListener('mousedown', (e) => { e.preventDefault(); onStart(e.clientX); });
+        window.addEventListener('mousemove', (e) => onMove(e.clientX));
+        window.addEventListener('mouseup', onEnd);
+
+        sliderHandle.addEventListener('touchstart', (e) => { onStart(e.touches[0].clientX); }, { passive: false });
+        window.addEventListener('touchmove', (e) => { if (isDragging) e.preventDefault(); onMove(e.touches[0].clientX); }, { passive: false });
+        window.addEventListener('touchend', onEnd);
+    </script>
+</body>
+</html>

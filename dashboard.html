@@ -1,0 +1,2823 @@
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ghost hub — Painel</title>
+        <meta name="description" content="Painel Ghost hub — Gerencie suas missões Discord, visualize perfis, Orbs, badges e use ferramentas exclusivas.">
+        <meta name="keywords" content="painel discord, dashboard discord, missões discord, auto quest discord, discord quests, ghost hub, perfil discord, orbs discord, discord badge, farm missões">
+        <meta name="author" content="Ghost hub">
+        <meta name="robots" content="index, follow">
+        <meta property="og:title" content="Ghost hub — Painel">
+        <meta property="og:description" content="Gerencie suas missões Discord, visualize perfis, Orbs, badges e use ferramentas exclusivas.">
+        <meta property="og:image" content="https://i.imgur.com/zNCp1IL.png">
+        <meta property="og:url" content="https://ghosthub.fun/dashboard.html">
+        <meta property="og:type" content="website">
+        <meta property="og:site_name" content="Ghost hub">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Ghost hub — Painel">
+        <meta name="twitter:description" content="Gerencie suas missões Discord, visualize perfis, Orbs, badges e use ferramentas exclusivas.">
+        <meta name="twitter:image" content="https://i.imgur.com/zNCp1IL.png">
+        <link rel="icon" type="image/png" href="https://ghosthub.shardweb.app/logo.png">
+    <script>
+    (function(){
+      var detected=false, ok=0, total=1;
+      function show(){
+        if(detected||document.getElementById('ablk'))return;
+        detected=true;
+        var o=document.createElement('div');
+        o.id='ablk';
+        o.innerHTML='<div style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:999999;display:flex;justify-content:center;align-items:center;padding:40px 24px;background:#000;font-family:Inter,sans-serif;"><div style="display:flex;align-items:center;gap:64px;max-width:1000px;width:100%;"><div style="flex:1;display:flex;align-items:center;justify-content:center;"><img src="./adblock.png" alt="AdBlock detectado" style="max-width:380px;width:100%;height:auto;border-radius:20px;box-shadow:0 40px 80px rgba(0,0,0,0.6);"></div><div style="flex:1;display:flex;flex-direction:column;gap:20px;"><h1 style="font-size:2rem;font-weight:800;letter-spacing:-0.03em;line-height:1.2;color:#fff;">AdBlock detectado</h1><p style="font-size:1rem;color:rgba(255,255,255,0.45);line-height:1.7;">O Ghost hub e um projeto gratuito que se mantem com anuncios. Para continuar usando o painel, desative seu bloqueador de anuncios e recarregue a pagina.</p><button style="display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:12px;font-size:0.95rem;font-weight:700;cursor:pointer;border:none;transition:all .2s;color:#fff;background:#0a0a0a;border:1px solid rgba(255,255,255,0.12);box-shadow:0 4px 16px rgba(0,0,0,0.5);align-self:flex-start;width:auto;" onmouseover="this.style.background=&#39;#141414&#39;;this.style.borderColor=&#39;rgba(255,255,255,0.22)&#39;;this.style.transform=&#39;translateY(-2px) scale(1.02)&#39;" onmouseout="this.style.background=&#39;#0a0a0a&#39;;this.style.borderColor=&#39;rgba(255,255,255,0.12)&#39;;this.style.transform=&#39;none&#39;" onclick="location.reload()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"/></svg>Recarregar pagina</button></div></div></div>';
+        document.body?document.body.appendChild(o):document.addEventListener('DOMContentLoaded',function(){document.body.appendChild(o);});
+      }
+      function test(src){
+        var s=document.createElement('script');
+        s.src=src;
+        s.onerror=function(){done(false);s.remove();};
+        s.onload=function(){done(true);s.remove();};
+        document.head.appendChild(s);
+      }
+      function done(success){
+        if(success) ok++;
+        total--;
+        if(total<=0 && ok===0) show();
+      }
+      test('https://pleasurecommitment.com/b135f94d32170c328208dedb844f4a0a/invoke.js');
+    })();
+    </script>
+    <script src="ads.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+        <style>
+            * { margin:0; padding:0; box-sizing:border-box; }
+            ::-webkit-scrollbar { width:8px; height:8px; }
+            ::-webkit-scrollbar-track { background:rgba(255,255,255,0.03); border-radius:4px; }
+            ::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.12); border-radius:4px; }
+            ::-webkit-scrollbar-thumb:hover { background:rgba(255,255,255,0.22); }
+            .sidebar-nav { scrollbar-width:thin; scrollbar-color:rgba(255,255,255,0.12) transparent; }
+            :root {
+                --black:#000; --white:#fff; --gray-50:#fafafa; --gray-100:#f5f5f5;
+                --gray-200:#e5e5e5; --gray-300:#d4d4d4; --gray-400:#a3a3a3;
+                --gray-500:#737373; --gray-600:#525252; --gray-700:#404040;
+                --gray-800:#262626; --gray-900:#171717;
+            }
+            body {
+                font-family:'Inter',sans-serif; background:#000; color:#fff;
+                display:flex; min-height:100vh;
+            }
+            /* Sidebar */
+            .sidebar {
+                width:260px; background:rgba(15,15,15,0.85); backdrop-filter:blur(24px) saturate(160%); border-right:1px solid rgba(255,255,255,0.06);
+                display:flex; flex-direction:column; position:fixed; top:0; left:0; bottom:0; z-index:100;
+                transition:transform .3s ease;
+            }
+            .sidebar-logo {
+                padding:24px; display:flex; align-items:center; gap:10px;
+                border-bottom:1px solid rgba(255,255,255,0.06); text-decoration:none; color:#fff;
+            }
+            .sidebar-logo .icon { width:34px; height:34px; border-radius:10px;
+                display:flex; align-items:center; justify-content:center; overflow:hidden; }
+            .sidebar-logo .icon img { width:100%; height:100%; object-fit:contain; }
+            .sidebar-logo span { font-weight:800; font-size:1.15rem; }
+            .sidebar-nav { flex:1; padding:16px 12px; overflow-y:auto; }
+            .nav-section { margin-bottom:20px; }
+            .nav-section-title { font-size:.7rem; font-weight:700; color:rgba(255,255,255,0.3); text-transform:uppercase; letter-spacing:.08em; padding:0 12px 8px; }
+            .nav-item { display:flex; align-items:center; gap:10px; padding:10px 12px 10px 18px; border-radius:10px;
+                cursor:pointer; font-size:.88rem; font-weight:500; color:rgba(255,255,255,0.5); transition:all .2s;
+                text-decoration:none; margin-bottom:2px; border:none; background:transparent; width:100%; }
+            .nav-item:hover { background:rgba(255,255,255,0.06); color:#fff; }
+            .nav-item.active { background:rgba(255,255,255,0.95); color:#000; }
+            .nav-item .icon-svg { width:18px; height:18px; flex-shrink:0; }
+            .sidebar-footer { padding:16px; border-top:1px solid rgba(255,255,255,0.06); }
+            .logout-btn { width:100%; padding:12px; border:1px solid rgba(255,255,255,0.12); border-radius:12px;
+                background:#0a0a0a; color:#fff; font-weight:700; cursor:pointer; font-size:.88rem;
+                transition:all .2s; display:flex; align-items:center; justify-content:center; gap:10px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+            .logout-btn:hover { background:#111; border-color:rgba(255,255,255,0.25); transform:translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.5); }
+
+            /* Main */
+            .main { flex:1; margin-left:260px; display:flex; flex-direction:column; min-height:100vh; }
+            .header {
+                height:68px; background:rgba(15,15,15,0.7); backdrop-filter:blur(24px) saturate(160%);
+                border-bottom:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:space-between;
+                padding:0 32px; position:sticky; top:0; z-index:90;
+            }
+            .header-title { font-size:1.05rem; font-weight:700; color:#fff; }
+            .header-user { display:flex; align-items:center; gap:14px; }
+            .header-user img { width:46px; height:46px; border-radius:50%; border:2px solid var(--gray-200); object-fit:cover; }
+            .header-user .name { font-weight:700; font-size:1.05rem; }
+            .header-user .sub { font-size:.85rem; color:rgba(255,255,255,0.4); }
+            .menu-toggle { display:none; background:none; border:none; font-size:1.4rem; cursor:pointer; color:#fff; }
+
+            .content { padding:32px; max-width:1200px; width:100%; margin:0 auto; }
+            .page-title { font-size:1.6rem; font-weight:800; margin-bottom:6px; color:#fff; }
+            .page-desc { color:rgba(255,255,255,0.4); font-size:.9rem; margin-bottom:28px; }
+
+            /* Stats */
+            .stats-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; margin-bottom:32px; }
+            .stat-box { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:16px; padding:20px; }
+            .stat-box .label { font-size:.75rem; font-weight:600; color:rgba(255,255,255,0.35); text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px; }
+            .stat-box .value { font-size:1.6rem; font-weight:800; }
+            .stat-box .sub { font-size:.8rem; color:rgba(255,255,255,0.3); margin-top:4px; }
+
+            /* Cards */
+            .card-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(360px,1fr)); gap:20px; }
+            .card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:18px; padding:24px; transition:box-shadow .2s; }
+            .card:hover { box-shadow:0 8px 24px rgba(0,0,0,.25); }
+            .card h3 { font-size:1rem; font-weight:700; margin-bottom:6px; display:flex; align-items:center; gap:8px; color:#fff; }
+            .card p.desc { font-size:.85rem; color:rgba(255,255,255,0.4); margin-bottom:18px; line-height:1.5; }
+            .form-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+            input, select {
+                flex:1; min-width:140px; padding:11px 14px; border:1.5px solid rgba(255,255,255,0.08); border-radius:12px;
+                font-size:.88rem; font-family:inherit; background:rgba(255,255,255,0.04); color:#fff; transition:all .2s;
+            }
+            input:focus, select:focus { outline:none; border-color:rgba(255,255,255,0.25); box-shadow:0 0 0 3px rgba(255,255,255,.05); background:rgba(255,255,255,0.07); }
+            input::placeholder, textarea::placeholder { text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+            select, select option { background:#111; color:#fff; }
+            select optgroup { background:#111; color:#fff; }
+            .btn {
+                padding:10px 18px; border-radius:10px; font-size:.82rem; font-weight:700; cursor:pointer;
+                border:none; transition:all .2s; display:inline-flex; align-items:center; gap:6px;
+            }
+            .btn-black {
+                background: #0a0a0a;
+                color: #fff;
+                border: 1px solid rgba(255,255,255,0.12);
+                box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+                position: relative;
+                overflow: hidden;
+            }
+            .btn-black:hover {
+                background: #141414;
+                border-color: rgba(255,255,255,0.22);
+                box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+                transform: translateY(-1px) scale(1.01);
+            }
+            .btn-black:active {
+                transform: translateY(0) scale(0.99);
+                background: #080808;
+            }
+            .btn-black:hover { transform:translateY(-1px); box-shadow:0 6px 16px rgba(0,0,0,.14); }
+
+            .btn-red, .btn-outline {
+                background: #0a0a0a;
+                color: #fff;
+                border: 1px solid rgba(255,255,255,0.12);
+                box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+                position: relative;
+                overflow: hidden;
+            }
+            .btn-red:hover, .btn-outline:hover {
+                background: #141414;
+                border-color: rgba(255,255,255,0.22);
+                box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+                transform: translateY(-1px) scale(1.01);
+            }
+            .btn-red:active, .btn-outline:active {
+                transform: translateY(0) scale(0.99);
+                background: #080808;
+            }
+            .btn-group { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+
+            .dm-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 8px 10px;
+                background: rgba(255,255,255,0.03);
+                border: 1px solid rgba(255,255,255,0.06);
+                border-radius: 10px;
+                transition: all .2s;
+                cursor: pointer;
+                margin-bottom: 6px;
+            }
+            .dm-item:hover {
+                background: rgba(255,255,255,0.08);
+                border-color: rgba(255,255,255,0.12);
+            }
+            .dm-item.selected {
+                background: rgba(88, 101, 242, 0.15);
+                border-color: #5865F2;
+            }
+            .dm-avatar {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                background: rgba(255,255,255,0.05);
+                flex-shrink: 0;
+            }
+            .dm-info {
+                flex: 1;
+                min-width: 0;
+            }
+            .dm-name {
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: #fff;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .dm-tag {
+                font-size: 0.7rem;
+                color: rgba(255,255,255,0.35);
+            }
+            .refresh-btn {
+                background: rgba(255,255,255,0.05);
+                border: 1px solid rgba(255,255,255,0.1);
+                color: #fff;
+                padding: 8px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all .2s;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                vertical-align: middle;
+            }
+            .refresh-btn:hover {
+                background: rgba(255,255,255,0.1);
+            }
+            .refresh-btn svg {
+                width: 16px;
+                height: 16px;
+            }
+            .refresh-btn.loading svg {
+                animation: spin 1s linear infinite;
+            }
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+
+            /* Loading Style */
+            .loading-container {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 16px;
+                background: rgba(255,255,255,0.03);
+                border: 1px solid rgba(255,255,255,0.06);
+                border-radius: 12px;
+                color: rgba(255,255,255,0.7);
+                font-size: 0.9rem;
+                font-weight: 500;
+                position: relative;
+                overflow: hidden;
+            }
+            .loading-container::after {
+                content: '';
+                position: absolute;
+                bottom: 0; left: 0;
+                height: 2px;
+                background: linear-gradient(90deg, #5865F2, #eb459e);
+                animation: loading-bar 2s ease-in-out infinite;
+                width: 30%;
+            }
+            @keyframes loading-bar {
+                0% { left: -30%; }
+                100% { left: 100%; }
+            }
+            .loading-spinner {
+                width: 18px;
+                height: 18px;
+                border: 2px solid rgba(255,255,255,0.1);
+                border-top: 2px solid #5865F2;
+                border-radius: 50%;
+                animation: spin 0.8s linear infinite;
+            }
+
+            .result-box {
+                margin-top:16px; padding:12px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06);
+                border-radius:14px; font-size:.85rem; max-height:320px; overflow-y:auto; overflow-x:hidden; line-height:1.7; display:none; color:rgba(255,255,255,0.8);
+            }
+            .result-box.show { display:block; animation:fadeIn .3s ease; }
+            .badge-list { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+            .badge-chip { 
+                position: relative;
+                display:flex; align-items:center; justify-content:center;
+                background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08);
+                padding:6px; border-radius:8px; cursor:pointer; transition: all .2s;
+            }
+            .badge-chip:hover { background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.2); }
+            .badge-chip img { width:20px; height:20px; object-fit:contain; }
+            .badge-chip .badge-text {
+                position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%) translateY(-4px);
+                background: #111; color: #fff; padding: 4px 10px; border-radius: 6px;
+                font-size: .7rem; font-weight: 600; white-space: nowrap;
+                opacity: 0; visibility: hidden; transition: all .2s ease;
+                border: 1px solid rgba(255,255,255,0.15); z-index: 100;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.5); pointer-events: none;
+            }
+            .badge-chip:hover .badge-text { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(-8px); }
+            .badge-chip .badge-text::after {
+                content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+                border-width: 5px; border-style: solid; border-color: #111 transparent transparent transparent;
+            }
+
+            /* Section visibility */
+            .section { display:none; animation:fadeIn .35s ease; }
+            .section.active { display:block; }
+
+            /* Loading */
+            .spinner { width:18px; height:18px; border:2px solid rgba(255,255,255,.25); border-top-color:var(--white); border-radius:50%; animation:spin .8s linear infinite; display:inline-block; vertical-align:middle; }
+            @keyframes spin { to { transform:rotate(360deg); } }
+            @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+            @keyframes slideUpToast { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+            @keyframes slideDownToast { from { transform: translateY(0); opacity: 1; } to { transform: translateY(100%); opacity: 0; } }
+
+            /* Lofi Presence */
+            .lofi-presence {
+                background: rgba(255,255,255,0.03);
+                border: 1px solid rgba(255,255,255,0.06);
+                border-radius: 20px;
+                margin-bottom: 32px;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                overflow: hidden;
+                max-width: 680px;
+            }
+            .lofi-banner {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                display: none;
+                border-radius: 20px 20px 0 0;
+            }
+            .lofi-presence-body {
+                display: flex;
+                gap: 28px;
+                align-items: center;
+                padding: 24px;
+            }
+            .lofi-avatar-wrap { position: relative; flex-shrink: 0; }
+            .lofi-avatar { width: 110px; height: 110px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.05); object-fit: cover; }
+            .lofi-status-dot { position: absolute; bottom: 8px; right: 8px; width: 22px; height: 22px; border-radius: 50%; border: 3px solid #111; background: #3ba55d; }
+            .lofi-info { flex: 1; min-width: 0; }
+            .lofi-name-wrap { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+            .lofi-name { font-size: 1.6rem; font-weight: 800; }
+            .lofi-badges { display: flex; gap: 8px; align-items: center; }
+            .lofi-badges .badge-chip { background: transparent; border: none; padding: 0; }
+            .lofi-badges .badge-chip img { width: 22px; height: 22px; }
+            .lofi-bio { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5; margin-bottom: 14px; max-width: 600px; white-space: pre-wrap; }
+            .lofi-activities { display: flex; gap: 12px; flex-wrap: wrap; }
+            .lofi-activity-tag {
+                background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+                padding: 8px 14px; border-radius: 12px; font-size: 0.8rem; font-weight: 600;
+                display: flex; align-items: center; gap: 10px;
+            }
+            .lofi-activity-tag img { width: 18px; height: 18px; border-radius: 4px; }
+            .lofi-edit-btn {
+                background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+                color: #fff; padding: 8px 16px; border-radius: 10px; font-size: 0.8rem;
+                font-weight: 700; cursor: pointer; transition: all 0.2s;
+                margin-top: 10px;
+            }
+            .lofi-edit-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+
+            /* Edit Modal Overlay */
+            .edit-modal-overlay {
+                display: none; position: fixed; inset: 0; 
+                background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+                z-index: 2000; align-items: flex-start; justify-content: center;
+                padding: 40px 20px; overflow-y: auto;
+            }
+            .edit-modal-content {
+                background: #0f0f0f; border: 1px solid rgba(255,255,255,0.1);
+                border-radius: 24px; width: 100%; max-width: 650px;
+                max-height: 85vh; overflow-y: auto; padding: 32px;
+                box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+                animation: fadeIn .3s ease;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(255,255,255,0.2) transparent;
+            }
+            .edit-modal-content::-webkit-scrollbar { width: 6px; }
+            .edit-modal-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+            .edit-modal-header { font-size: 1.4rem; font-weight: 800; margin-bottom: 24px; }
+            .edit-modal-footer { display: flex; gap: 12px; margin-top: 24px; }
+
+            /* ===== RESPONSIVE MOBILE ===== */
+            @media (max-width: 768px) {
+                body { flex-direction: column; }
+                
+                /* Sidebar vira drawer */
+                .sidebar {
+                    width: 260px;
+                    transform: translateX(-100%);
+                    z-index: 1000;
+                }
+                .sidebar.open { transform: translateX(0); }
+                .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:999; backdrop-filter:blur(4px); }
+                .overlay.show { display:block; }
+                
+                /* Main ajusta */
+                .main { margin-left: 0; min-height: auto; }
+                .header {
+                    height: 56px;
+                    padding: 0 16px;
+                    gap: 10px;
+                }
+                .header-title { font-size: 0.95rem; }
+                .header-user { gap: 8px; }
+                .header-user img { width: 36px; height: 36px; }
+                .header-user .name { font-size: 0.85rem; }
+                .header-user .sub { font-size: 0.7rem; }
+                .menu-toggle { display: flex !important; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.06); }
+                
+                /* Content */
+                .content { padding: 16px; max-width: 100%; }
+                .page-title { font-size: 1.25rem; margin-bottom: 4px; }
+                .page-desc { font-size: 0.8rem; margin-bottom: 18px; }
+                
+                /* Stats */
+                .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+                .stat-box { padding: 14px; border-radius: 12px; }
+                .stat-box .label { font-size: 0.65rem; }
+                .stat-box .value { font-size: 1.2rem; }
+                .stat-box .sub { font-size: 0.7rem; }
+                
+                /* Cards */
+                .card-grid { grid-template-columns: 1fr; gap: 14px; }
+                .card { padding: 18px; border-radius: 14px; }
+                .card h3 { font-size: 0.9rem; }
+                .card p.desc { font-size: 0.8rem; margin-bottom: 14px; }
+                
+                /* Forms */
+                .form-row { flex-direction: column; gap: 8px; }
+                input, select { min-width: 0; width: 100%; padding: 10px 12px; font-size: 0.85rem; }
+                .btn { padding: 9px 14px; font-size: 0.78rem; }
+                .btn-group { gap: 6px; }
+                
+                /* Lofi Presence */
+                .lofi-presence-body {
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 18px;
+                    gap: 14px;
+                    margin-bottom: 0;
+                }
+                .lofi-banner { border-radius: 20px 20px 0 0; }
+                .lofi-avatar { width: 80px; height: 80px; }
+                .lofi-status-dot { width: 16px; height: 16px; bottom: 4px; right: 4px; border-width: 2px; }
+                .lofi-name { font-size: 1.2rem; }
+                .lofi-bio { font-size: 0.85rem; max-width: 100%; }
+                .lofi-activities { justify-content: center; }
+                .lofi-activity-tag { padding: 6px 10px; font-size: 0.72rem; }
+                .lofi-edit-btn { margin-top: 8px; padding: 7px 14px; font-size: 0.75rem; }
+                
+                /* Discord Profile Card */
+                .discord-profile-card { border-radius: 12px; }
+                .discord-banner { height: 120px; }
+                .discord-profile-body { padding: 0 16px 20px; }
+                .discord-avatar-wrap { margin-top: -50px; width: 100px; height: 100px; }
+                .discord-avatar { width: 90px; height: 90px; border-width: 5px; }
+                .discord-status-ring { width: 22px; height: 22px; bottom: 4px; right: 4px; border-width: 3px; }
+                .discord-header-row { flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 10px; }
+                .discord-displayname { font-size: 1.3rem; }
+                .discord-username { font-size: 0.9rem; }
+                .discord-badges { gap: 8px; }
+                .discord-header-row .discord-badges { justify-content: flex-start; }
+                
+                /* Edit Modal */
+                .edit-modal-overlay { padding: 16px; align-items: flex-end; }
+                .edit-modal-content {
+                    max-width: 100%;
+                    max-height: 90vh;
+                    padding: 20px;
+                    border-radius: 18px;
+                }
+                .edit-modal-header { font-size: 1.1rem; margin-bottom: 16px; }
+                .edit-modal-footer { flex-direction: column; gap: 8px; margin-top: 16px; }
+                .edit-modal-footer .btn { width: 100%; justify-content: center; }
+                
+                /* Result boxes */
+                .result-box { max-height: 280px; padding: 10px; font-size: 0.8rem; }
+                
+                /* DM items */
+                .dm-item { padding: 6px 8px; }
+                .dm-avatar { width: 28px; height: 28px; }
+                .dm-name { font-size: 0.8rem; }
+                .dm-tag { font-size: 0.65rem; }
+                
+                /* Quest cards */
+                .quest-hero, .quest-thumb-wrap { height: 120px; }
+                .quest-body { padding: 12px; }
+                .quest-title { font-size: 0.9rem; }
+                .quest-game { font-size: 0.75rem; }
+                .quest-reward { font-size: 0.75rem; padding: 6px 8px; }
+                .quest-reward img { width: 22px; height: 22px; }
+                .quest-actions { flex-wrap: wrap; }
+                .quest-actions .btn { flex: 1; min-width: 100px; justify-content: center; }
+                
+                /* Badge chips */
+                .badge-chip { padding: 5px; }
+                .badge-chip img { width: 18px; height: 18px; }
+                
+                /* Toast / Notificações */
+                #toastNotification {
+                    left: 16px !important;
+                    right: 16px !important;
+                    bottom: 16px !important;
+                    max-width: none !important;
+                    padding: 12px 14px !important;
+                    font-size: 0.85rem !important;
+                    border-radius: 12px !important;
+                }
+                
+                /* Scroll horizontal em tabelas/listas largas */
+                .result-box > div[style*="grid"] { min-width: 0; }
+            }
+            
+            @media (max-width: 480px) {
+                .stats-grid { grid-template-columns: 1fr 1fr; }
+                .header-user .name { display: none; }
+                .header-user .sub { display: none; }
+                .header-user { gap: 0; }
+            }
+            
+            @media (max-width: 360px) {
+                .stats-grid { grid-template-columns: 1fr; }
+            }
+            .overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.3); z-index:99; }
+            .overlay.show { display:block; }
+            /* Quest Cards */
+            .quest-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:18px; overflow:hidden; transition:box-shadow .2s, transform .2s; display:flex; flex-direction:column; }
+            .quest-card:hover { box-shadow:0 8px 24px rgba(0,0,0,.25); transform:translateY(-2px); }
+            .quest-hero { width:100%; height:160px; object-fit:cover; background:rgba(255,255,255,0.03); }
+            .quest-thumb-wrap { width:100%; height:160px; background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; }
+            .quest-thumb-wrap img { width:100%; height:100%; object-fit:cover; }
+            .quest-thumb-wrap .thumb-fallback { display:none; align-items:center; justify-content:center; width:100%; height:100%; background:rgba(255,255,255,0.04); font-size:2.5rem; font-weight:800; color:rgba(255,255,255,0.15); text-transform:uppercase; }
+            .quest-logotype { position:absolute; bottom:12px; left:12px; max-height:48px; max-width:60%; width:auto; height:auto; object-fit:contain; filter:drop-shadow(0 2px 8px rgba(0,0,0,0.6)); pointer-events:none; z-index:2; }
+            @media (max-width:480px){ .quest-logotype { max-height:36px; bottom:8px; left:8px; } }
+            .quest-body { padding:16px; flex:1; display:flex; flex-direction:column; }
+            .quest-title { font-size:1rem; font-weight:700; margin-bottom:4px; color:#fff; }
+            .quest-game { font-size:.8rem; color:rgba(255,255,255,0.45); margin-bottom:10px; }
+            .quest-reward { display:flex; align-items:center; gap:8px; font-size:.8rem; color:rgba(255,255,255,0.7); background:rgba(255,255,255,0.04); padding:8px 10px; border-radius:10px; margin-bottom:12px; margin-top:auto; }
+            .quest-reward img { width:28px; height:28px; object-fit:contain; border-radius:6px; }
+            .quest-actions { display:flex; gap:8px; }
+            .quest-completed { font-size:.75rem; color:#86efac; font-weight:700; display:flex; align-items:center; gap:6px; }
+
+            /* Premium Card Style */
+            .card-premium {
+                background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(10,10,10,0.95));
+                border: 1px solid rgba(255,255,255,0.1);
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            }
+            .premium-badge {
+                position: absolute;
+                top: 12px; right: 12px;
+                background: linear-gradient(90deg, #5865F2, #eb459e);
+                padding: 4px 8px;
+                border-radius: 6px;
+                font-size: 10px;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            }
+    /* Discord Profile Card */
+    .discord-profile-card {
+        background: #1a1a1a;
+        border-radius: 16px;
+        overflow: hidden;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+        border: 1px solid rgba(255,255,255,0.06);
+    }
+    .discord-banner {
+        height: 220px;
+        width: 100%;
+        position: relative;
+    }
+    .discord-profile-body {
+        padding: 0 28px 28px;
+        position: relative;
+    }
+    .discord-avatar-wrap {
+        position: relative;
+        margin-top: -80px;
+        width: 144px;
+        height: 144px;
+    }
+    .discord-avatar {
+        width: 128px;
+        height: 128px;
+        border-radius: 50%;
+        border: 8px solid #1a1a1a;
+        background: #1a1a1a;
+        object-fit: cover;
+    }
+    .discord-status-ring {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 4px solid #1a1a1a;
+        background: #3ba55d;
+    }
+    .discord-header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+        margin-top: 16px;
+    }
+    .discord-names {
+        min-width: 0;
+    }
+    .discord-displayname {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.2;
+    }
+    .discord-username {
+        font-size: 1.05rem;
+        color: rgba(255,255,255,0.5);
+        font-weight: 500;
+        margin-top: 4px;
+    }
+    .discord-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 14px;
+    }
+    .discord-header-row .discord-badges {
+        margin-top: 4px;
+        flex-shrink: 0;
+        justify-content: flex-end;
+    }
+    .badge-chip {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    .badge-chip:hover {
+        transform: scale(1.1);
+    }
+    .badge-chip img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+    }
+    .badge-chip .badge-text {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-6px);
+        background: #000;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255,255,255,0.15);
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        pointer-events: none;
+    }
+    .badge-chip .badge-text::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 6px;
+        border-style: solid;
+        border-color: #000 transparent transparent transparent;
+    }
+    .badge-chip:hover .badge-text {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    .discord-tabs {
+        display: flex;
+        gap: 0;
+        margin-top: 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .discord-tab {
+        background: none;
+        border: none;
+        color: rgba(255,255,255,0.4);
+        padding: 12px 20px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: all 0.2s;
+        font-family: inherit;
+    }
+    .discord-tab:hover { color: rgba(255,255,255,0.7); }
+    .discord-tab.active { color: #fff; border-bottom-color: #fff; }
+    .discord-tab-content { padding-top: 20px; }
+    .discord-section { margin-bottom: 22px; }
+    .discord-section-title {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.35);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 10px;
+    }
+    .discord-bio {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.75);
+        line-height: 1.6;
+        white-space: pre-wrap;
+    }
+    .discord-member-since {
+        font-size: 1rem;
+        color: rgba(255,255,255,0.6);
+    }
+    .discord-guild-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 0;
+    }
+    .discord-guild-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #fff;
+        overflow: hidden;
+    }
+    .discord-guild-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .discord-guild-name { font-size: 0.95rem; color: rgba(255,255,255,0.8); font-weight: 500; }
+    .discord-guild-owner {
+        font-size: 0.65rem;
+        background: rgba(255,255,255,0.12);
+        padding: 2px 6px;
+        border-radius: 4px;
+        margin-left: 8px;
+        color: #fff;
+        font-weight: 700;
+    }
+    .discord-activity-card {
+        background: rgba(0,0,0,0.35);
+        border-radius: 12px;
+        padding: 18px;
+        margin-bottom: 14px;
+        border: 1px solid rgba(255,255,255,0.05);
+    }
+    .discord-activity-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: rgba(255,255,255,0.4);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-bottom: 12px;
+    }
+    .discord-live-badge {
+        background: #f04747;
+        color: #fff;
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-weight: 800;
+    }
+    .discord-activity-body {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+    }
+    .discord-activity-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+    .discord-activity-info { flex: 1; min-width: 0; }
+    .discord-activity-name {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #fff;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .discord-activity-artist, .discord-activity-details, .discord-activity-state {
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.5);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 3px;
+    }
+    .discord-activity-link {
+        display: inline-block;
+        margin-top: 8px;
+        font-size: 0.9rem;
+        color: #00aff4;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .discord-activity-link:hover { text-decoration: underline; }
+    .discord-spotify-bar {
+        width: 100%;
+        height: 5px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 3px;
+        margin-top: 12px;
+        overflow: hidden;
+    }
+    .discord-spotify-progress {
+        height: 100%;
+        background: #1db954;
+        border-radius: 3px;
+    }
+    .discord-spotify-time {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: rgba(255,255,255,0.35);
+        margin-top: 5px;
+    }
+    .discord-no-activity {
+        color: rgba(255,255,255,0.3);
+        font-size: 0.95rem;
+        text-align: center;
+        padding: 24px;
+    }
+    .discord-activity-album {
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.35);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 3px;
+    }
+    .discord-activity-icon {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        object-fit: cover;
+    }
+    .discord-spotify {
+        border-left: 3px solid #1db954;
+    }
+    .discord-streaming {
+        border-left: 3px solid #f04747;
+    }
+        /* ===== CUSTOM MODAL ===== */
+        .gh-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            padding: 16px;
+        }
+        .gh-modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .gh-modal {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            padding: 24px;
+            max-width: 420px;
+            width: 100%;
+            color: #fff;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+            transform: scale(0.95) translateY(10px);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gh-modal-overlay.open .gh-modal {
+            transform: scale(1) translateY(0);
+        }
+        .gh-modal-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+            word-break: break-word;
+        }
+        .gh-modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+        .gh-modal-btn {
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all .2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            min-width: 100px;
+            flex: 1;
+        }
+        .gh-modal-btn.primary {
+            background: #0a0a0a;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+        }
+        .gh-modal-btn.primary:hover {
+            background: #141414;
+            border-color: rgba(255,255,255,0.22);
+            transform: translateY(-1px) scale(1.01);
+        }
+        .gh-modal-btn.secondary {
+            background: transparent;
+            color: rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .gh-modal-btn.secondary:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.22);
+            color: #fff;
+        }
+        @media (max-width: 480px) {
+            .gh-modal {
+                padding: 20px;
+                border-radius: 14px;
+            }
+            .gh-modal-text {
+                font-size: 0.9rem;
+                margin-bottom: 16px;
+            }
+            .gh-modal-btn {
+                padding: 12px 14px;
+                font-size: 0.85rem;
+                min-width: auto;
+            }
+        }
+
+        /* ===== WELCOME MODALS ===== */
+        .welcome-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(16px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+        .welcome-modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .welcome-modal {
+            background: #0f0f0f;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 380px;
+            width: 100%;
+            color: #fff;
+            box-shadow: 0 32px 64px rgba(0,0,0,0.5);
+            transform: scale(0.96) translateY(12px);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+        }
+        .welcome-modal-overlay.open .welcome-modal {
+            transform: scale(1) translateY(0);
+        }
+        .welcome-modal svg.icon {
+            width: 32px;
+            height: 32px;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+        }
+        .welcome-modal-logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            object-fit: contain;
+            margin: 0 auto 20px;
+        }
+        .welcome-modal h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .welcome-modal p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.55;
+            margin-bottom: 28px;
+        }
+        .welcome-modal-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+        .welcome-modal-btn {
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all .2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+            flex: 1;
+        }
+        .welcome-modal-btn.primary {
+            background: #fff;
+            color: #000;
+        }
+        .welcome-modal-btn.primary:hover {
+            background: rgba(255,255,255,0.85);
+        }
+        .welcome-modal-btn.discord {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(88,101,242,0.4);
+        }
+        .welcome-modal-btn.discord:hover {
+            background: rgba(88,101,242,0.1);
+            border-color: rgba(88,101,242,0.6);
+        }
+        .welcome-modal-btn.secondary {
+            background: transparent;
+            color: rgba(255,255,255,0.35);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .welcome-modal-btn.secondary:hover {
+            color: rgba(255,255,255,0.7);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        </style>
+    </head>
+    <body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <a href="/" class="sidebar-logo">
+            <div class="icon"><img src="https://ghosthub.shardweb.app/logo.png" alt="Ghost hub"></div>
+            <span>Ghost hub</span>
+        </a>
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Visão Geral</div>
+                <button class="nav-item active" onclick="showSection('dashboard',this)"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Dashboard</button>
+            </div>
+            <div class="nav-section">
+                <div class="nav-section-title">Ferramentas</div>
+                <button class="nav-item" onclick="showSection('perfil',this)"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Perfil & Info</button>
+                <button class="nav-item" onclick="showSection('mensagens',this)"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Mensagens</button>
+                <button class="nav-item" onclick="showSection('amigos',this)"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Amigos</button>
+                <button class="nav-item" onclick="showSection('servidores',this)"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg> Servidores</button>
+                <button class="nav-item" onclick="showSection('call',this)"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Controle de Call</button>
+                <button class="nav-item" onclick="showSection('monitor',this)"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Monitoramento</button>
+                <button class="nav-item" onclick="showSection('farm',this)"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Farms</button>
+                <button class="nav-item" onclick="showSection('missoes',this)"><svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Missões</button>
+            </div>
+
+        </nav>
+        <div class="sidebar-footer">
+            <a href="https://discord.gg/GAZHndCknR" target="_blank" class="logout-btn" style="margin-bottom:8px;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg> Discord
+            </a>
+            <button class="logout-btn" onclick="disconnect()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Sair da Conta</button>
+        </div>
+    </aside>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Main -->
+    <div class="main">
+        <header class="header">
+            <button class="menu-toggle" onclick="toggleSidebar()"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+            <div class="header-title" id="pageTitle"></div>
+            <div class="header-user" id="headerUser">
+                <div style="text-align:right;">
+                    <div class="name" id="userName">Carregando...</div>
+                    <div class="sub" id="userStatus">Conectando</div>
+                </div>
+                <img id="userAvatar" src="" alt="" onerror="this.src='https://cdn.discordapp.com/embed/avatars/0.png'">
+            </div>
+        </header>
+
+        <div class="content">
+
+            <!-- DASHBOARD -->
+            <div class="section active" id="sec-dashboard">
+                <div class="page-title">Dashboard</div>
+                <div class="page-desc">Visão geral da sua conta e estatísticas.</div>
+
+                <!-- Lofi Presence Card -->
+                <div class="lofi-presence" id="lofiPresence">
+                    <img class="lofi-banner" id="lofiBanner" style="display:none;" alt="Banner">
+                    <div class="lofi-presence-body">
+                        <div class="lofi-avatar-wrap">
+                            <img src="" id="lofiAvatar" class="lofi-avatar" onerror="this.src='https://cdn.discordapp.com/embed/avatars/0.png'">
+                            <div class="lofi-status-dot" id="lofiStatusDot"></div>
+                        </div>
+                        <div class="lofi-info">
+                            <div class="lofi-name-wrap">
+                                <div class="lofi-name" id="lofiName">Carregando...</div>
+                                <div class="lofi-badges" id="lofiBadges"></div>
+                            </div>
+                            <div class="lofi-activities" id="lofiActivities"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Profile Modal Overlay -->
+                <div id="editProfileModal" class="edit-modal-overlay">
+                    <div class="edit-modal-content">
+                        <div class="edit-modal-header">Editar Perfil</div>
+                        
+                        <div class="discord-section-title">Status Personalizado</div>
+                        <input type="text" id="editStatus" class="profile-edit-input" style="width:100%; margin-bottom:20px; padding:12px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:12px; color:#fff;" placeholder="O que você está fazendo?">
+                        
+                        <div class="edit-modal-footer">
+                            <button class="btn btn-black" onclick="updateProfile(this)" style="flex:1; justify-content:center; padding:14px;">Salvar Alterações</button>
+                            <button class="btn btn-outline" onclick="toggleEditProfile()" style="flex:1; justify-content:center; padding:14px;">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dash-banner" style="margin: 20px 0; display: flex; justify-content: center; min-height: 60px;">
+                    <script>
+                        atOptions = {
+                            'key' : '530974799d65629c085fd4c77266f13e',
+                            'format' : 'iframe',
+                            'height' : 60,
+                            'width' : 468,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://compassionpersonify.com/530974799d65629c085fd4c77266f13e/invoke.js"></script>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-box"><div class="label">Usuário</div><div class="value" id="dashName">—</div><div class="sub" id="dashId">ID: —</div></div>
+                    <div class="stat-box"><div class="label">Servidores</div><div class="value" id="dashGuilds">—</div></div>
+                    <div class="stat-box"><div class="label">Amigos</div><div class="value" id="dashFriends">—</div></div>
+                    <div class="stat-box"><div class="label">Idade da Conta</div><div class="value" id="dashAge">—</div><div class="sub">dias desde criação</div></div>
+                </div>
+
+                <div class="page-title" style="margin-top:8px;">Ações Rápidas</div>
+                <div class="page-desc">Atalhos para as funções mais usadas.</div>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg> UserInfo Premium</h3>
+                        <p class="desc">Consulte badges, idade, servidores em comum e banner de qualquer usuário.</p>
+                        <div class="form-row"><input type="text" id="dashUserId" placeholder="ID do usuário (deixe vazio para você)"></div>
+                        <div class="btn-group">
+                            <button class="btn btn-black" onclick="getUserInfo(document.getElementById('dashUserId').value,'dashResult')">Buscar Perfil</button>
+                        </div>
+                        <div class="result-box" id="dashResult"></div>
+                    </div>
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Limpar Mensagens</h3>
+                        <p class="desc">Apague rapidamente suas mensagens de uma DM ou canal de servidor.</p>
+                        <div class="form-row">
+                            <input type="text" id="dashDelId" placeholder="ID do usuário ou canal" style="flex:1;">
+                            <select id="dashDelType" onchange="toggleDMSelect(this.value)" style="flex:0 0 100px;">
+                                <option value="dm">DM</option>
+                                <option value="server">Servidor</option>
+                            </select>
+                        </div>
+                        <div id="dmSelectContainer" style="display:none; margin-top:12px;">
+                            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+                                <span style="font-size:0.8rem; font-weight:700; color:rgba(255,255,255,0.4);">DMs Abertas / Amigos:</span>
+                                <button class="refresh-btn" onclick="loadOpenDMs()" id="dmRefreshBtn" title="Atualizar Lista">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                                </button>
+                            </div>
+                            <div id="openDMsList" style="max-height:180px; overflow-y:auto; padding-right:4px;">
+                                <!-- DMs serão inseridas aqui via JS -->
+                            </div>
+                        </div>
+                        <div class="btn-group" style="margin-top:12px;">
+                            <button class="btn btn-red" onclick="deleteMessagesQuick()">Apagar Mensagens</button>
+                        </div>
+                        <div class="result-box" id="dashDelResult"></div>
+                    </div>
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg> Gerenciar Servidores</h3>
+                        <p class="desc">Liste todos os servidores ou saia de todos de uma vez.</p>
+                        <div class="btn-group">
+                            <button class="btn btn-black" onclick="loadGuilds('dashGuildResult')">Listar Servidores</button>
+                            <button class="btn btn-red" onclick="leaveAllGuilds('dashGuildResult')">Sair de Todos</button>
+                        </div>
+                        <div class="result-box" id="dashGuildResult"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PERFIL -->
+            <div class="section" id="sec-perfil">
+                <div class="page-title">Perfil & Informações</div>
+                <div class="page-desc">Consulte informações detalhadas de perfis do Discord.</div>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg> UserInfo Premium</h3>
+                        <p class="desc">Busca badges via API do Discord, calcula idade da conta, detecta Nitro/Booster, servidores em comum, banner e cor de destaque.</p>
+                        <div class="form-row"><input type="text" id="profileUserId" placeholder="ID do usuário (deixe vazio para você)"></div>
+                        <div class="btn-group">
+                            <button class="btn btn-black" onclick="getUserInfo(document.getElementById('profileUserId').value,'profileResult')">Buscar Perfil</button>
+                            <button class="btn btn-outline" onclick="getUserInfo('','profileResult')">Meu Perfil</button>
+                        </div>
+                        <div class="result-box" id="profileResult"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- MENSAGENS -->
+            <div class="section" id="sec-mensagens">
+                <div class="page-title">Mensagens</div>
+                <div class="page-desc">Apague mensagens e configure monitoramento automático.</div>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Apagar Mensagens em DM</h3>
+                        <p class="desc">Deleta até 100 mensagens enviadas por você em uma conversa privada.</p>
+                        <div class="form-row">
+                            <input type="text" id="dmUserId" placeholder="ID do usuário (DM)">
+                            <input type="number" id="dmLimit" value="50" min="1" max="100" style="flex:0 0 90px;">
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-red" onclick="deleteDM()">Apagar DM</button>
+                        </div>
+                        <div class="result-box" id="dmResult"></div>
+                    </div>
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Apagar Mensagens em Servidor</h3>
+                        <p class="desc">Deleta até 100 mensagens enviadas por você em um canal de servidor.</p>
+                        <div class="form-row">
+                            <input type="text" id="srvChannelId" placeholder="ID do canal do servidor">
+                            <input type="number" id="srvLimit" value="50" min="1" max="100" style="flex:0 0 90px;">
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-red" onclick="deleteServerMessages()">Apagar no Servidor</button>
+                        </div>
+                        <div class="result-box" id="srvResult"></div>
+                    </div>
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg> Monitor de Clear</h3>
+                        <p class="desc">Monitora um canal e apaga automaticamente suas mensagens quando alguém digitar <code>clear</code>.</p>
+                        <div class="form-row"><input type="text" id="clearChannelId" placeholder="ID do canal para monitorar"></div>
+                        <div class="btn-group">
+                            <button class="btn btn-black" onclick="startClearMonitor()">Iniciar Monitor</button>
+                            <button class="btn btn-outline" onclick="stopClearMonitor()">Parar Monitor</button>
+                        </div>
+                        <div class="result-box" id="clearResult"></div>
+                    </div>
+                </div>
+                <div class="dash-banner" style="margin: 20px 0; display: flex; justify-content: center; min-height: 60px;">
+                    <script>
+                        atOptions = {
+                            'key' : '530974799d65629c085fd4c77266f13e',
+                            'format' : 'iframe',
+                            'height' : 60,
+                            'width' : 468,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://compassionpersonify.com/530974799d65629c085fd4c77266f13e/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- AMIGOS -->
+            <div class="section" id="sec-amigos">
+                <div class="page-title">Amigos</div>
+                <div class="page-desc">Gerencie sua lista de amigos e conversas.</div>
+                <div style="margin-bottom:16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+                    <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:10px 16px; font-size:0.9rem;">
+                        <span style="color:rgba(255,255,255,0.5);">Amigos:</span>
+                        <strong id="amigosCount" style="color:#fff; margin-left:6px;">—</strong>
+                        <button class="refresh-btn" onclick="loadAmigosCount()" style="margin-left:10px;" title="Atualizar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="17" y1="8" x2="22" y2="13"/><line x1="22" y1="8" x2="17" y2="13"/></svg> Remover Todos os Amigos</h3>
+                        <p class="desc">Remove todos os amigos da sua conta de uma só vez. <strong>Atenção:</strong> irreversível.</p>
+                        <div class="btn-group">
+                            <button class="btn btn-red" onclick="removeFriends()" id="btnRemoveFriends">Remover Todos</button>
+                            <button class="btn btn-outline" onclick="stopAction('remove-friends')" id="btnStopRemoveFriends" style="display:none;">⏹ Parar</button>
+                        </div>
+                        <div class="result-box" id="friendsResult"></div>
+                    </div>
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Abrir DM com Todos os Amigos</h3>
+                        <p class="desc">Abre uma conversa privada com cada amigo da sua lista automaticamente.</p>
+                        <div class="btn-group">
+                            <button class="btn btn-black" onclick="openDMsFriends()" id="btnOpenDMs">Abrir Todas as DMs</button>
+                            <button class="btn btn-outline" onclick="stopAction('open-dms-friends')" id="btnStopOpenDMs" style="display:none;">⏹ Parar</button>
+                        </div>
+                        <div class="result-box" id="openDMsResult"></div>
+                    </div>
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Fechar Todas as DMs</h3>
+                        <p class="desc">Fecha todas as conversas privadas abertas na sua conta.</p>
+                        <div class="btn-group">
+                            <button class="btn btn-red" onclick="closeDMs()" id="btnCloseDMs">Fechar Todas</button>
+                            <button class="btn btn-outline" onclick="stopAction('close-dms')" id="btnStopCloseDMs" style="display:none;">⏹ Parar</button>
+                        </div>
+                        <div class="result-box" id="closeDMsResult"></div>
+                    </div>
+                </div>
+                <div class="dash-banner" style="margin: 20px 0; display: flex; justify-content: center; min-height: 60px;">
+                    <script>
+                        atOptions = {
+                            'key' : '530974799d65629c085fd4c77266f13e',
+                            'format' : 'iframe',
+                            'height' : 60,
+                            'width' : 468,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://compassionpersonify.com/530974799d65629c085fd4c77266f13e/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- SERVIDORES -->
+            <div class="section" id="sec-servidores">
+                <div class="page-title">Servidores</div>
+                <div class="page-desc">Gerencie os servidores que você participa.</div>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg> Listar Servidores</h3>
+                        <p class="desc">Exibe todos os servidores que você está conectado, com ID, membros e se você é dono.</p>
+                        <div class="btn-group">
+                            <button class="btn btn-black" onclick="loadGuilds('guildListResult')">Listar Servidores</button>
+                        </div>
+                        <div class="result-box" id="guildListResult"></div>
+                    </div>
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Sair de Todos os Servidores</h3>
+                        <p class="desc">Sai de todos os servidores automaticamente. Você pode manter um servidor informando o ID dele.</p>
+                        <div class="form-row"><input type="text" id="keepGuildId" placeholder="ID do servidor para manter (opcional)"></div>
+                        <div class="btn-group">
+                            <button class="btn btn-red" onclick="leaveAllGuilds('leaveResult')">Sair de Todos</button>
+                        </div>
+                        <div class="result-box" id="leaveResult"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CALL -->
+            <div class="section" id="sec-call">
+                <div class="page-title">Controle de Call</div>
+                <div class="page-desc">Controle canais de voz em servidores onde você tem permissões.</div>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Canais de Voz</h3>
+                        <p class="desc">Selecione um servidor para carregar os canais de voz disponíveis.</p>
+                        <div class="form-row">
+                            <select id="voiceGuildSelect" onchange="loadVoiceChannels()" style="flex:2;"><option value="">Selecione um servidor...</option></select>
+                            <button class="btn btn-outline" onclick="populateGuildSelect()" style="flex:0;">↻</button>
+                        </div>
+                        <div class="form-row">
+                            <select id="voiceChannelSelect" style="flex:1;"><option value="">Canal origem</option></select>
+                            <select id="voiceTargetSelect" style="flex:1;"><option value="">Canal destino</option></select>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-red" onclick="disconnectVoice()">Desconectar Todos</button>
+                            <button class="btn btn-black" onclick="moveVoice()">Mover Todos</button>
+                            <button class="btn btn-black" onclick="pullAllToVoice()">Puxar Todos</button>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-outline" onclick="muteVoice(true)">Mutar Todos</button>
+                            <button class="btn btn-outline" onclick="muteVoice(false)">Desmutar Todos</button>
+                        </div>
+                        <div class="result-box" id="voiceResult"></div>
+                    </div>
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg> Ping-Pong Infinito</h3>
+                        <p class="desc">Move repetidamente os usuários entre dois canais de voz em loop infinito.</p>
+                        <div class="form-row"><input type="text" id="pingChannel1" placeholder="ID do Canal Origem"></div>
+                        <div class="form-row"><input type="text" id="pingChannel2" placeholder="ID do Canal Destino"></div>
+                        <div class="btn-group">
+                            <button class="btn btn-black" onclick="startPingPong()">Iniciar Ping-Pong</button>
+                            <button class="btn btn-red" onclick="stopPingPong()">Parar</button>
+                            <button class="btn btn-outline" onclick="pingPongStatus()">Status</button>
+                        </div>
+                        <div class="result-box" id="pingPongResult"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MONITORAMENTO -->
+            <div class="section" id="sec-monitor">
+                <div class="page-title">Monitoramento Premium</div>
+                <div class="page-desc">Monitore mensagens e atividades de voz em tempo real com entrega via Webhook.</div>
+                <div class="card-grid">
+                    <div class="card card-premium">
+                        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Espião de Atividades</h3>
+                        <p class="desc">Configure um monitor silencioso para capturar cada passo do alvo no Discord.</p>
+                        
+                        <div style="display:flex; flex-direction:column; gap:12px;">
+                            <div class="form-row" style="margin-bottom:0;">
+                                <div style="flex:1; position:relative;">
+                                    <input type="text" id="monitorUserId" placeholder="ID do Usuário Alvo" style="width:100%; padding-left:40px;">
+                                    <svg style="position:absolute; left:14px; top:12px; color:rgba(255,255,255,0.3);" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                </div>
+                            </div>
+                            <div class="form-row" style="margin-bottom:0;">
+                                <div style="flex:1; position:relative;">
+                                    <input type="text" id="monitorWebhook" placeholder="URL da Webhook do Discord" style="width:100%; padding-left:40px;">
+                                    <svg style="position:absolute; left:14px; top:12px; color:rgba(255,255,255,0.3);" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btn-group" style="margin-top:20px; justify-content: space-between;">
+                            <div style="display:flex; gap:8px;">
+                                <button class="btn btn-black" onclick="startMonitor()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Iniciar
+                                </button>
+                            </div>
+                            <button class="btn btn-red" onclick="stopMonitor()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg> Parar
+                            </button>
+                        </div>
+                        <div class="result-box" id="monitorResult" style="margin-top:20px; border-style:dashed; border-color:rgba(255,255,255,0.1);"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FARM -->
+            <div class="section" id="sec-farm">
+                <div class="page-title">Kosame Farm</div>
+                <div class="page-desc">Autofarm para o bot Kosame. Executa comandos automaticamente em um canal.</div>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 2a10 10 0 0 1 10 10"/></svg> Kosame Auto Farm</h3>
+                        <p class="desc">Envia comandos <code>k!work</code>, <code>k!daily</code>, <code>k!semanal</code>, <code>k!mensal</code>, <code>k!vote</code>, <code>k!gf</code>, <code>k!fofocar</code>, <code>k!recompensa</code> em loop.</p>
+                        <div class="form-row"><input type="text" id="farmChannelId" placeholder="ID do canal para farmar"></div>
+                        <div class="form-row"><input type="number" id="farmCycles" value="0" placeholder="Ciclos (0 = infinito)" style="flex:0 0 140px;"></div>
+                        <div class="btn-group">
+                            <button class="btn btn-black" onclick="startFarm()">Iniciar Farm</button>
+                            <button class="btn btn-red" onclick="stopFarm()">Parar Farm</button>
+                        </div>
+                        <div class="result-box" id="farmResult"></div>
+                    </div>
+
+                    <!-- NOVO: FARM DE CALL -->
+                    <div class="card">
+                        <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Farm de Call (Horas)</h3>
+                        <p class="desc">Fique conectado em um canal de voz para farmar horas de call.</p>
+                        <div class="form-row">
+                            <select id="farmVoiceGuildSelect" onchange="loadFarmVoiceChannels()" style="flex:1;"><option value="">Selecione o servidor...</option></select>
+                            <button class="btn btn-outline" onclick="populateGuildSelect()" style="flex:0;">↻</button>
+                        </div>
+                        <div class="form-row">
+                            <select id="farmVoiceChannelSelect" style="flex:1;"><option value="">Selecione a call...</option></select>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-black" onclick="connectVoiceFarm()">Conectar na Call</button>
+                            <button class="btn btn-red" onclick="disconnectVoiceFarm()">Sair da Call</button>
+                        </div>
+                        <div class="result-box" id="farmVoiceResult"></div>
+                    </div>
+                </div>
+                <div class="dash-banner" style="margin: 20px 0; display: flex; justify-content: center; min-height: 60px;">
+                    <script>
+                        atOptions = {
+                            'key' : '530974799d65629c085fd4c77266f13e',
+                            'format' : 'iframe',
+                            'height' : 60,
+                            'width' : 468,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://compassionpersonify.com/530974799d65629c085fd4c77266f13e/invoke.js"></script>
+                </div>
+            </div>
+
+            <!-- MISSÕES -->
+            <div class="section" id="sec-missoes">
+                <div class="page-title">Missões</div>
+                <div class="page-desc">Quests disponíveis do Discord. Complete para ganhar recompensas.</div>
+                <div style="display:flex;justify-content:center;margin-bottom:18px;">
+                    <div class="cf-turnstile" data-sitekey="0x4AAAAAADFIWq5tgeIHdOw4" data-theme="dark"></div>
+                </div>
+                <div id="questsLoading" style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.4);margin-bottom:20px;">
+                    <span class="spinner" style="border-color:rgba(255,255,255,0.2);border-top-color:#fff;"></span> Carregando missões...
+                </div>
+                <div class="result-box" id="questsResult"></div>
+                <div id="questsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;"></div>
+                <div class="dash-banner" style="margin: 20px 0; display: flex; justify-content: center; min-height: 60px;">
+                    <script>
+                        atOptions = {
+                            'key' : '530974799d65629c085fd4c77266f13e',
+                            'format' : 'iframe',
+                            'height' : 60,
+                            'width' : 468,
+                            'params' : {}
+                        };
+                    </script>
+                    <script src="https://compassionpersonify.com/530974799d65629c085fd4c77266f13e/invoke.js"></script>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+    /* ===== AUTH GUARD ===== */
+    const savedToken = localStorage.getItem('site_token');
+    if (!savedToken) {
+        window.location.href = '/login';
+    }
+
+    // Toast notification
+    function showToast(msg, type='info', duration=4000) {
+        let toast = document.getElementById('toastNotification');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'toastNotification';
+            toast.style.cssText = 'position:fixed;bottom:24px;left:auto;right:24px;z-index:9999;background:rgba(20,20,20,0.95);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:10px;color:#fff;font-size:0.9rem;font-weight:500;box-shadow:0 8px 32px rgba(0,0,0,0.5);animation:slideUpToast 0.4s ease;max-width:380px;line-height:1.4;';
+            document.body.appendChild(toast);
+        }
+        const iconColor = type === 'error' ? '#f87171' : (type === 'success' ? '#4ade80' : '#60a5fa');
+        const iconSvg = type === 'error' 
+            ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${iconColor}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>`
+            : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${iconColor}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+        toast.innerHTML = `${iconSvg}<span>${msg}</span>`;
+        
+        // Remove toast anterior se existir timer
+        if (toast._timer) clearTimeout(toast._timer);
+        toast._timer = setTimeout(() => { 
+            if(toast) {
+                toast.style.animation = 'slideDownToast 0.3s ease forwards';
+                setTimeout(() => toast.remove(), 300);
+            }
+        }, duration);
+    }
+
+    /* ===== NAVIGATION ===== */
+    function showSection(id, el) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.getElementById('sec-'+id).classList.add('active');
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        if(el) el.classList.add('active');
+        document.getElementById('pageTitle').textContent = '';
+        if(window.innerWidth < 900) toggleSidebar();
+        if(id === 'call') populateGuildSelect();
+        if(id === 'amigos') loadAmigosCount();
+    }
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('open');
+        document.getElementById('overlay').classList.toggle('show');
+    }
+
+    /* ===== HELPERS ===== */
+    function setResult(id, html) { const el=document.getElementById(id); el.innerHTML=html; el.classList.add('show'); }
+    function clearResult(id) { const el=document.getElementById(id); el.innerHTML=''; el.classList.remove('show'); }
+    function loading(id, text='Carregando...') { 
+        setResult(id, `
+            <div class="loading-container">
+                <div class="loading-spinner"></div>
+                <span>${text}</span>
+            </div>
+        `); 
+    }
+    function escapeHtml(t){ if(!t)return''; const d=document.createElement('div'); d.textContent=t; return d.innerHTML; }
+    async function apiPost(url, body, resultId) {
+        try {
+            const r = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Site-Token': localStorage.getItem('site_token') || ''
+                },
+                body: JSON.stringify(body)
+            });
+            const text = await r.text();
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch(e) {
+                console.error('Falha ao analisar JSON (Post):', text);
+                return { error: 'Resposta inválida do servidor' };
+            }
+            if (r.status === 401) handleAuthError(data);
+            return data;
+        } catch(e) {
+            console.error('API Post Error:', e);
+            if(resultId) setResult(resultId, `<span style="color:#ff6b6b">Erro: ${escapeHtml(e.message)}</span>`);
+            throw e;
+        }
+    }
+    function handleAuthError(data) {
+        if (data && (data.expired || data.error?.includes('Sessão') || data.error?.includes('inválida'))) {
+            localStorage.removeItem('site_token');
+            window.location.href = '/login';
+        }
+    }
+
+    async function apiGet(url, resultId) {
+        try {
+            const r = await fetch(url, {
+                headers: { 'X-Site-Token': localStorage.getItem('site_token') || '' }
+            });
+            const text = await r.text();
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch(e) {
+                console.error('Falha ao analisar JSON:', text);
+                return { error: 'Resposta inválida do servidor: ' + text.substring(0, 100) };
+            }
+            if (r.status === 401) handleAuthError(data);
+            return data;
+        } catch(e) {
+            console.error('API Get Error:', e);
+            if(resultId) setResult(resultId, `<span style="color:#ff6b6b">Erro: ${escapeHtml(e.message)}</span>`);
+            throw e;
+        }
+    }
+
+    /* ===== AUTH ===== */
+    async function loadStatus() {
+        try {
+            const data = await apiGet('/api/status');
+            if(!data.connected){ window.location.href='/login'; return; }
+            
+            // Header
+            document.getElementById('userName').textContent = data.globalName || data.username;
+            document.getElementById('userAvatar').src = data.avatar;
+            
+            // Status Dot no Lofi
+            const statusDot = document.getElementById('lofiStatusDot');
+            const statusColors = { online: '#3ba55c', idle: '#faa61a', dnd: '#ed4245', offline: '#747f8d' };
+            if (data.presenceStatus) {
+                statusDot.style.background = statusColors[data.presenceStatus] || statusColors.offline;
+            }
+            
+            // Texto de status no header (embaixo do nome)
+            const userStatusText = document.getElementById('userStatus');
+            if (data.activities && data.activities.length > 0) {
+                const primaryAct = data.activities.find(a => a.type !== 4) || data.activities[0];
+                userStatusText.textContent = primaryAct.state || primaryAct.name;
+            } else {
+                userStatusText.textContent = `@${data.username}`;
+            }
+            
+            // Stats Grid
+            document.getElementById('dashName').textContent = data.globalName || data.username;
+            document.getElementById('dashId').textContent = 'ID: ' + data.id;
+            document.getElementById('dashGuilds').textContent = data.guilds;
+            document.getElementById('dashFriends').textContent = data.friends;
+            const age = Math.floor((Date.now() - data.createdAt) / (1000*60*60*24));
+            document.getElementById('dashAge').textContent = age;
+
+            // Lofi Presence
+            const lofiBanner = document.getElementById('lofiBanner');
+            if(data.bannerURL) {
+                lofiBanner.style.display = 'block';
+                lofiBanner.src = data.bannerURL;
+            } else {
+                lofiBanner.style.display = 'none';
+                lofiBanner.src = '';
+            }
+            document.getElementById('lofiAvatar').src = data.avatar;
+            document.getElementById('lofiName').textContent = data.globalName || data.username;
+            
+            // Badges no Lofi
+            const lofiBadges = document.getElementById('lofiBadges');
+            lofiBadges.innerHTML = '';
+            
+            try {
+                const profile = await apiPost('/api/userinfo', { userId: data.id });
+                if(profile && profile.badges) {
+                    profile.badges.forEach(b => {
+                        const bDiv = document.createElement('div');
+                        bDiv.className = 'badge-chip';
+                        bDiv.innerHTML = `<img src="${b.img}" title="${escapeHtml(b.text)}">`;
+                        lofiBadges.appendChild(bDiv);
+                    });
+                }
+            } catch(be) { console.error('Erro ao carregar badges:', be); }
+            
+            // Activities
+            const actContainer = document.getElementById('lofiActivities');
+            actContainer.innerHTML = '';
+            if(data.activities && data.activities.length > 0) {
+                data.activities.forEach(act => {
+                    const tag = document.createElement('div');
+                    tag.className = 'lofi-activity-tag';
+                    tag.style.background = 'rgba(255,255,255,0.04)';
+                    tag.style.padding = '8px 12px';
+                    tag.style.borderRadius = '10px';
+                    tag.style.display = 'flex';
+                    tag.style.alignItems = 'center';
+                    tag.style.gap = '8px';
+                    tag.style.fontSize = '0.8rem';
+                    
+                    let icon = '';
+                    if(act.name === 'Spotify') {
+                        icon = `<img src="https://cdn.discordapp.com/app-assets/spotify.png" style="width:24px;height:24px;border-radius:4px;">`;
+                    } else if(act.assets && act.assets.largeImage) {
+                        icon = `<img src="${act.assets.largeImage}" style="width:24px;height:24px;border-radius:4px;object-fit:cover;" onerror="this.style.display='none'">`;
+                    } else if(act.applicationId) {
+                        // Tentar ícone padrão da aplicação se for um jogo
+                        icon = `<img src="https://cdn.discordapp.com/app-icons/${act.applicationId}/a_icon.png" style="width:24px;height:24px;border-radius:4px;" onerror="this.src='https://cdn.discordapp.com/embed/avatars/0.png'">`;
+                    }
+                    
+                    let text = `<strong style="color:#fff;">${escapeHtml(act.name)}</strong>`;
+                    
+                    // Tratar Status Personalizado (Type 4)
+                    if (act.type === 4 || act.type === 'CUSTOM') {
+                        text = `<span style="color:#fff;">${escapeHtml(act.state || act.details || '')}</span>`;
+                    } else {
+                        if(act.details) text += `<span style="color:rgba(255,255,255,0.7); display:block; font-size:0.75rem;">${escapeHtml(act.details)}</span>`;
+                        if(act.state) text += `<span style="color:rgba(255,255,255,0.4); display:block; font-size:0.7rem;">${escapeHtml(act.state)}</span>`;
+                    }
+                    
+                    tag.innerHTML = `${icon} <div style="display:flex; flex-direction:column; gap:1px;">${text}</div>`;
+                    actContainer.appendChild(tag);
+                });
+            } else {
+                actContainer.innerHTML = '<span style="font-size:0.75rem; color:rgba(255,255,255,0.3);">Nenhuma atividade detectada</span>';
+            }
+
+        } catch(e){ console.error('Erro ao carregar status:', e); }
+    }
+
+    function toggleEditProfile() {
+        const modal = document.getElementById('editProfileModal');
+        const isVisible = modal.style.display === 'flex';
+        modal.style.display = isVisible ? 'none' : 'flex';
+    }
+
+    async function updateProfile(btn) {
+        const status = document.getElementById('editStatus').value;
+        
+        try {
+            const oldText = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = 'Salvando...';
+            
+            const res = await apiPost('/api/update-profile', { status });
+            if(res.success) {
+                toggleEditProfile();
+                loadStatus(); // Recarrega para mostrar as mudanças
+            } else {
+                showToast('Erro ao atualizar perfil: ' + (res.error || 'Erro desconhecido'), 'error');
+            }
+            
+            btn.disabled = false;
+            btn.textContent = oldText;
+        } catch(e) {
+            console.error(e);
+            showToast('Erro ao atualizar perfil', 'error');
+        }
+    }
+    async function disconnect() {
+        try { await apiPost('/api/disconnect',{}); localStorage.removeItem('site_token'); window.location.href='/login'; }
+        catch(e){ showToast('Erro ao desconectar', 'error'); }
+    }
+    async function checkConnection(resultId) {
+        loading(resultId, 'Verificando conexão...');
+        const data = await apiGet('/api/check-connection', resultId);
+        if(data.connected) setResult(resultId, `Conectado como <strong>${escapeHtml(data.username)}</strong> (ID: ${data.userId})`);
+        else setResult(resultId, `<span style="color:#ff6b6b">Desconectado: ${escapeHtml(data.error)}</span>`);
+    }
+
+    /* ===== PERFIL ===== */
+    async function runDiagnostic(resultId) {
+        loading(resultId, 'Rodando diagnóstico...');
+        const data = await apiGet('/api/diagnostic', resultId);
+        if(!data.connected) { setResult(resultId, `<span style="color:#ff6b6b">${escapeHtml(data.error||'Não conectado')}</span>`); return; }
+        let html = `<strong style="color:#86efac">Diagnóstico OK</strong><br>`;
+        html += `Usuário: <strong>${escapeHtml(data.username)}</strong><br>`;
+        html += `Servidores: ${data.guildsCount}<br>`;
+        html += `Token: ${data.tokenValid ? 'Válido' : '<span style="color:#ff6b6b">Inválido</span>'}<br>`;
+        if(data.guilds && data.guilds.length) html += `<br><strong>Servidores:</strong><br>` + data.guilds.map(g=>`• ${escapeHtml(g.name)} (${g.memberCount} membros)`).join('<br>');
+        setResult(resultId, html);
+    }
+    async function getUserInfo(userId, resultId) {
+        try {
+            loading(resultId, 'Buscando perfil...');
+            const data = await apiPost('/api/userinfo', { userId: userId || '' }, resultId);
+            if(data.error){ setResult(resultId, `<span style="color:#ff6b6b">${escapeHtml(data.error)}</span>`); return; }
+            
+            const themeColor = data.themeColors && data.themeColors[0] ? '#' + data.themeColors[0].toString(16).padStart(6, '0') : (data.accentColor || '#5865F2');
+            // Banner: use solid theme color when no banner image (Discord behavior)
+            const bannerBg = data.bannerURL 
+                ? `url(${data.bannerURL})` 
+                : themeColor;
+            
+            // Expand result box and card for profile card
+            const resultBox = document.getElementById(resultId);
+            if(resultBox) { resultBox.style.maxHeight = 'none'; resultBox.style.overflow = 'visible'; resultBox.style.padding = '0'; resultBox.style.background = 'transparent'; resultBox.style.border = 'none'; }
+            const card = resultBox ? resultBox.closest('.card') : null;
+            if(card) { card.style.gridColumn = '1 / -1'; card.style.maxWidth = 'none'; }
+            
+            let html = `<div class="discord-profile-card">`;
+            html += `<div class="discord-banner" style="background:${bannerBg}; background-size:cover; background-position:center;"></div>`;
+            html += `<div class="discord-profile-body">`;
+            html += `<div class="discord-avatar-wrap">`;
+            html += `<img src="${data.avatarURL}" class="discord-avatar" onerror="this.src='https://cdn.discordapp.com/embed/avatars/0.png'">`;
+            html += `</div>`;
+            html += `<div class="discord-header-row">`;
+            html += `<div class="discord-names">`;
+            html += `<div class="discord-displayname">${escapeHtml(data.globalName || data.username)}</div>`;
+            html += `<div class="discord-username">@${escapeHtml(data.username)}</div>`;
+            html += `</div>`;
+            
+            if(data.badges && data.badges.length) {
+                html += `<div class="discord-badges">`;
+                html += data.badges.map(b => `
+                    <div class="badge-chip">
+                        <img src="${b.img}" onerror="this.style.display='none'">
+                        <span class="badge-text">${escapeHtml(b.text)}</span>
+                    </div>`).join('');
+                html += `</div>`;
+            }
+            html += `</div>`;
+            
+            // Tabs
+            html += `<div class="discord-tabs">`;
+            html += `<button class="discord-tab active" onclick="this.parentElement.querySelectorAll('.discord-tab').forEach(t=>t.classList.remove('active'));this.classList.add('active');document.getElementById('tab-sobre-${resultId}').style.display='block';document.getElementById('tab-atividade-${resultId}').style.display='none';">Sobre</button>`;
+            html += `<button class="discord-tab" onclick="this.parentElement.querySelectorAll('.discord-tab').forEach(t=>t.classList.remove('active'));this.classList.add('active');document.getElementById('tab-sobre-${resultId}').style.display='none';document.getElementById('tab-atividade-${resultId}').style.display='block';">Atividade</button>`;
+            html += `</div>`;
+            
+            // Tab: Sobre
+            html += `<div id="tab-sobre-${resultId}" class="discord-tab-content">`;
+            
+            if(data.bio) {
+                html += `<div class="discord-section"><div class="discord-section-title">Sobre Mim</div><div class="discord-bio">${escapeHtml(data.bio).replace(/\n/g,'<br>')}</div></div>`;
+            }
+            
+            html += `<div class="discord-section"><div class="discord-section-title">Membro desde</div><div class="discord-member-since">${data.createdAtFormatted}</div></div>`;
+            
+            if(data.mutualGuildsCount > 0) {
+                html += `<div class="discord-section"><div class="discord-section-title">Servidores em comum (${data.mutualGuildsCount})</div>`;
+                html += data.mutualGuilds.slice(0,5).map(g => `
+                    <div class="discord-guild-row">
+                        <div class="discord-guild-icon">${g.icon?`<img src="${g.icon}">`:g.name[0]}</div>
+                        <div class="discord-guild-name">${escapeHtml(g.name)}${g.isOwner?'<span class="discord-guild-owner">DONO</span>':''}</div>
+                    </div>`).join('');
+                html += `</div>`;
+            }
+            html += `</div>`;
+            
+            // Tab: Atividade
+            html += `<div id="tab-atividade-${resultId}" class="discord-tab-content" style="display:none;">`;
+            if(data.activities && Array.isArray(data.activities) && data.activities.length > 0) {
+                data.activities.forEach(act => {
+                    const typeNames = ['Jogando','Transmitindo','Ouvindo','Assistindo','Customizado','Competindo'];
+                    const typeName = typeNames[act.type] || 'Atividade';
+                    
+                    if(act.name === 'Spotify' && act.type === 2) {
+                        // Spotify
+                        const now = Date.now();
+                        const start = act.timestamps?.start || 0;
+                        const end = act.timestamps?.end || 1;
+                        const progress = Math.min(100, Math.max(0, ((now - start) / (end - start)) * 100));
+                        const curMin = Math.floor((now - start)/60000);
+                        const curSec = Math.floor(((now - start)%60000)/1000);
+                        const totMin = Math.floor((end - start)/60000);
+                        const totSec = Math.floor(((end - start)%60000)/1000);
+                        
+                        html += `<div class="discord-activity-card discord-spotify">`;
+                        html += `<div class="discord-activity-header"><span>${typeName}</span><img src="https://cdn.discordapp.com/app-assets/spotify.png" class="discord-activity-icon" onerror="this.style.display='none'"></div>`;
+                        html += `<div class="discord-activity-body">`;
+                        if(act.assets && act.assets.largeImage && typeof act.assets.largeImage === 'string') {
+                            html += `<img src="https://i.scdn.co/image/${act.assets.largeImage.replace('spotify:','')}" class="discord-activity-img" onerror="this.src='https://cdn.discordapp.com/embed/avatars/0.png'">`;
+                        }
+                        html += `<div class="discord-activity-info">`;
+                        html += `<div class="discord-activity-name">${escapeHtml(act.details || 'Música')}</div>`;
+                        html += `<div class="discord-activity-artist">${escapeHtml(act.state || 'Artista')}</div>`;
+                        html += `<div class="discord-activity-album">${escapeHtml(act.assets?.largeText || '')}</div>`;
+                        html += `<div class="discord-spotify-bar"><div class="discord-spotify-progress" style="width:${progress}%"></div></div>`;
+                        html += `<div class="discord-spotify-time"><span>${curMin}:${curSec.toString().padStart(2,'0')}</span><span>${totMin}:${totSec.toString().padStart(2,'0')}</span></div>`;
+                        html += `</div></div></div>`;
+                    } else if(act.type === 1 && act.url) {
+                        // Streaming
+                        html += `<div class="discord-activity-card discord-streaming">`;
+                        html += `<div class="discord-activity-header"><span>${typeName}</span><span class="discord-live-badge">AO VIVO</span></div>`;
+                        html += `<div class="discord-activity-body">`;
+                        if(act.assets && act.assets.largeImage) {
+                            html += `<img src="${act.assets.largeImage}" class="discord-activity-img">`;
+                        }
+                        html += `<div class="discord-activity-info">`;
+                        html += `<div class="discord-activity-name">${escapeHtml(act.name)}</div>`;
+                        html += `<div class="discord-activity-details">${escapeHtml(act.details || '')}</div>`;
+                        html += `<div class="discord-activity-state">${escapeHtml(act.state || '')}</div>`;
+                        if(act.url) html += `<a href="${escapeHtml(act.url)}" target="_blank" class="discord-activity-link">Assistir</a>`;
+                        html += `</div></div></div>`;
+                    } else {
+                        // Generic activity
+                        html += `<div class="discord-activity-card">`;
+                        html += `<div class="discord-activity-header"><span>${typeName}</span></div>`;
+                        html += `<div class="discord-activity-body">`;
+                        if(act.assets && act.assets.largeImage) {
+                            html += `<img src="${act.assets.largeImage}" class="discord-activity-img">`;
+                        }
+                        html += `<div class="discord-activity-info">`;
+                        html += `<div class="discord-activity-name">${escapeHtml(act.name)}</div>`;
+                        html += `<div class="discord-activity-details">${escapeHtml(act.details || '')}</div>`;
+                        html += `<div class="discord-activity-state">${escapeHtml(act.state || '')}</div>`;
+                        html += `</div></div></div>`;
+                    }
+                });
+            } else {
+                html += `<div class="discord-no-activity">Nenhuma atividade no momento.</div>`;
+            }
+            html += `</div>`;
+            
+            html += `</div></div>`;
+            setResult(resultId, html);
+        } catch(e) {
+            console.error('Erro em getUserInfo:', e);
+            setResult(resultId, `<span style="color:#ff6b6b">Erro ao carregar perfil: ${escapeHtml(e.message)}</span>`);
+        }
+    }
+
+    /* ===== MENSAGENS ===== */
+    async function deleteDM() {
+        const userId = document.getElementById('dmUserId').value.trim();
+        const limit = parseInt(document.getElementById('dmLimit').value) || 50;
+        if(!userId){ setResult('dmResult', '<span style="color:#fbbf24">Informe o ID do usuário</span>'); return; }
+        loading('dmResult', 'Apagando mensagens...');
+        const data = await apiPost('/api/delete-dm', { userId, limit }, 'dmResult');
+        if(data.error){ setResult('dmResult', `<span style="color:#ff6b6b">${escapeHtml(data.error)}</span>`); return; }
+        setResult('dmResult', `${data.deleted} de ${data.total} mensagens apagadas.`);
+    }
+    async function deleteServerMessages() {
+        const channelId = document.getElementById('srvChannelId').value.trim();
+        const limit = parseInt(document.getElementById('srvLimit').value) || 50;
+        if(!channelId){ setResult('srvResult', '<span style="color:#fbbf24">Informe o ID do canal</span>'); return; }
+        loading('srvResult', 'Apagando mensagens...');
+        const data = await apiPost('/api/delete-server', { channelId, limit }, 'srvResult');
+        if(data.error){ setResult('srvResult', `<span style="color:#ff6b6b">${escapeHtml(data.error)}</span>`); return; }
+        setResult('srvResult', `${data.deleted} de ${data.total} mensagens apagadas.`);
+    }
+    async function deleteMessagesQuick() {
+        const id = document.getElementById('dashDelId').value.trim();
+        const type = document.getElementById('dashDelType').value;
+        if(!id){ setResult('dashDelResult', '<span style="color:#fbbf24">Informe o ID</span>'); return; }
+        loading('dashDelResult', 'Apagando...');
+        const data = await apiPost(type==='dm'?'/api/delete-dm':'/api/delete-server', type==='dm'?{userId:id,limit:50}:{channelId:id,limit:50}, 'dashDelResult');
+        if(data.error){ setResult('dashDelResult', `<span style="color:#ff6b6b">${escapeHtml(data.error)}</span>`); return; }
+        setResult('dashDelResult', `${data.deleted} mensagens apagadas.`);
+    }
+
+    function toggleDMSelect(type) {
+        const container = document.getElementById('dmSelectContainer');
+        if (type === 'dm') {
+            container.style.display = 'block';
+            loadOpenDMs();
+        } else {
+            container.style.display = 'none';
+        }
+    }
+
+    async function loadOpenDMs() {
+        const list = document.getElementById('openDMsList');
+        const refreshBtn = document.getElementById('dmRefreshBtn');
+        
+        list.innerHTML = '<div style="text-align:center; padding:20px; color:rgba(255,255,255,0.3); font-size:0.8rem;">Carregando...</div>';
+        refreshBtn.classList.add('loading');
+        
+        try {
+            const ping = await apiGet('/api/ping');
+            if (ping.error && ping.error.includes('<!DOCTYPE html>')) {
+                list.innerHTML = '<div style="text-align:center; padding:10px; color:#ff6b6b; font-size:0.75rem;">Reinicie o servidor (node server.js)</div>';
+                return;
+            }
+
+            const data = await apiGet('/api/open-dms');
+            
+            if (data.error) {
+                list.innerHTML = `<div style="text-align:center; padding:10px; color:#ff6b6b; font-size:0.75rem;">Erro: ${data.error}</div>`;
+                return;
+            }
+
+            list.innerHTML = '';
+            if (data.dms && data.dms.length > 0) {
+                data.dms.forEach(dm => {
+                    const item = document.createElement('div');
+                    item.className = 'dm-item';
+                    item.onclick = () => {
+                        document.getElementById('dashDelId').value = dm.id;
+                        document.querySelectorAll('.dm-item').forEach(el => el.classList.remove('selected'));
+                        item.classList.add('selected');
+                    };
+                    
+                    item.innerHTML = `
+                        <img src="${dm.avatar}" class="dm-avatar" onerror="this.src='https://cdn.discordapp.com/embed/avatars/0.png'">
+                        <div class="dm-info">
+                            <div class="dm-name">${escapeHtml(dm.globalName)}</div>
+                            <div class="dm-tag">@${escapeHtml(dm.username)}</div>
+                        </div>
+                    `;
+                    list.appendChild(item);
+                });
+            } else {
+                list.innerHTML = '<div style="text-align:center; padding:20px; color:rgba(255,255,255,0.2); font-size:0.8rem;">Nenhuma DM ou amigo encontrado.</div>';
+            }
+        } catch (e) {
+            console.error('Erro ao carregar DMs:', e);
+            list.innerHTML = '<div style="text-align:center; padding:10px; color:#ff6b6b; font-size:0.75rem;">Erro de conexão/API.</div>';
+        } finally {
+            refreshBtn.classList.remove('loading');
+        }
+    }
+    async function startClearMonitor() {
+        const channelId = document.getElementById('clearChannelId').value.trim();
+        if(!channelId){ setResult('clearResult', '<span style="color:#fbbf24">Informe o ID do canal</span>'); return; }
+        loading('clearResult', 'Iniciando monitor...');
+        const data = await apiPost('/api/clear-monitor', { channelId }, 'clearResult');
+        setResult('clearResult', `${escapeHtml(data.message)}`);
+    }
+    async function stopClearMonitor() {
+        const channelId = document.getElementById('clearChannelId').value.trim();
+        if(!channelId){ setResult('clearResult', '<span style="color:#fbbf24">Informe o ID do canal</span>'); return; }
+        const data = await apiPost('/api/clear-monitor', { channelId, stop:true }, 'clearResult');
+        setResult('clearResult', data.success ? `Monitor parado.` : `<span style="color:#ff6b6b">${escapeHtml(data.error)}</span>`);
+    }
+
+    /* ===== AMIGOS ===== */
+    let currentAction = null;
+
+    async function loadAmigosCount() {
+        const el = document.getElementById('amigosCount');
+        if(el) el.textContent = '...';
+        try {
+            const data = await apiGet('/api/status');
+            if(el) el.textContent = (data.friends !== undefined) ? data.friends : '?';
+        } catch(e) {
+            if(el) el.textContent = '?';
+        }
+    }
+
+    function setActionButtons(action, running) {
+        const map = {
+            'remove-friends': { main: 'btnRemoveFriends', stop: 'btnStopRemoveFriends' },
+            'open-dms-friends': { main: 'btnOpenDMs', stop: 'btnStopOpenDMs' },
+            'close-dms': { main: 'btnCloseDMs', stop: 'btnStopCloseDMs' }
+        };
+        const cfg = map[action];
+        if(!cfg) return;
+        const mainBtn = document.getElementById(cfg.main);
+        const stopBtn = document.getElementById(cfg.stop);
+        if(mainBtn) mainBtn.style.display = running ? 'none' : '';
+        if(stopBtn) stopBtn.style.display = running ? '' : 'none';
+    }
+
+    async function stopAction(action) {
+        try {
+            await apiPost('/api/stop-action', { action });
+            setResult('friendsResult', '<span style="color:#fbbf24">⏹ Parando operação...</span>');
+            setResult('openDMsResult', '<span style="color:#fbbf24">⏹ Parando operação...</span>');
+            setResult('closeDMsResult', '<span style="color:#fbbf24">⏹ Parando operação...</span>');
+        } catch(e) {}
+    }
+
+    async function removeFriends() {
+        if(!await showConfirm('Tem certeza que deseja remover TODOS os amigos?')) return;
+        currentAction = 'remove-friends';
+        setActionButtons('remove-friends', true);
+        loading('friendsResult', 'Removendo amigos...');
+        try {
+            const data = await apiPost('/api/remove-friends', {}, 'friendsResult');
+            setResult('friendsResult', `${data.removed} de ${data.total} amigos removidos.${data.stopped ? ' (Parado pelo usuário)' : ''}`);
+            loadAmigosCount();
+        } catch(e) {
+            setResult('friendsResult', '<span style="color:#ff6b6b">Erro: ' + escapeHtml(e.message) + '</span>');
+        }
+        setActionButtons('remove-friends', false);
+        currentAction = null;
+    }
+    async function openDMsFriends() {
+        currentAction = 'open-dms-friends';
+        setActionButtons('open-dms-friends', true);
+        loading('openDMsResult', 'Abrindo DMs...');
+        try {
+            const data = await apiPost('/api/open-dms-friends', {}, 'openDMsResult');
+            setResult('openDMsResult', `${data.opened} DMs abertas. ${data.errors>0 ? `(${data.errors} erros)` : ''}${data.stopped ? ' (Parado pelo usuário)' : ''}`);
+        } catch(e) {
+            setResult('openDMsResult', '<span style="color:#ff6b6b">Erro: ' + escapeHtml(e.message) + '</span>');
+        }
+        setActionButtons('open-dms-friends', false);
+        currentAction = null;
+    }
+    async function closeDMs() {
+        if(!await showConfirm('Fechar TODAS as DMs?')) return;
+        currentAction = 'close-dms';
+        setActionButtons('close-dms', true);
+        loading('closeDMsResult', 'Fechando DMs...');
+        try {
+            const data = await apiPost('/api/close-dms', {}, 'closeDMsResult');
+            setResult('closeDMsResult', `${data.closed} de ${data.total} DMs fechadas.${data.stopped ? ' (Parado pelo usuário)' : ''}`);
+        } catch(e) {
+            setResult('closeDMsResult', '<span style="color:#ff6b6b">Erro: ' + escapeHtml(e.message) + '</span>');
+        }
+        setActionButtons('close-dms', false);
+        currentAction = null;
+    }
+
+    /* ===== SERVIDORES ===== */
+    async function loadGuilds(resultId) {
+        loading(resultId, 'Carregando servidores...');
+        const data = await apiGet('/api/guilds', resultId);
+        let html = `<div style="font-size:.9rem;font-weight:700;margin-bottom:8px;color:#fff;">${data.guilds.length} servidores</div>`;
+        html += `<div style="display:grid;gap:8px;margin-top:10px;">`;
+        html += data.guilds.map(g => {
+            const iconHtml = g.icon
+                ? `<img src="${escapeHtml(g.icon)}" style="width:32px;height:32px;border-radius:8px;object-fit:cover;flex-shrink:0;background:rgba(255,255,255,0.06);" onerror="this.style.display='none';this.parentElement.querySelector('.guild-fallback').style.display='flex';">`
+                : '';
+            const fallbackHtml = `<div class="guild-fallback" style="display:${g.icon?'none':'flex'};align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,0.08);font-size:.9rem;font-weight:800;color:#fff;flex-shrink:0;">${escapeHtml(g.name[0]||'?')}</div>`;
+            const ownerTag = g.isOwner ? `<span style="display:inline-block;font-size:.55rem;font-weight:800;background:rgba(255,255,255,0.12);color:#fff;padding:1px 5px;border-radius:4px;margin-left:5px;letter-spacing:.02em;vertical-align:middle;">DONO</span>` : '';
+            return `<div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;transition:background .2s;overflow:hidden;" onmouseover="this.style.background='rgba(255,255,255,0.06)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+                <div style="display:flex;align-items:center;justify-content:center;flex-shrink:0;">${iconHtml}${fallbackHtml}</div>
+                <div style="flex:1;min-width:0;">
+                    <div style="font-weight:700;font-size:.85rem;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2;">${escapeHtml(g.name)}${ownerTag}</div>
+                    <div style="font-size:.72rem;color:rgba(255,255,255,0.35);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${(g.memberCount||0).toLocaleString()} membros · <span style="font-family:monospace;font-size:.65rem;">${g.id}</span></div>
+                </div>
+            </div>`;
+        }).join('');
+        html += `</div>`;
+        setResult(resultId, html);
+        populateGuildSelect(data.guilds);
+    }
+    async function leaveAllGuilds(resultId) {
+        const keepId = document.getElementById('keepGuildId')?.value.trim() || '';
+        if(!await showConfirm(`Sair de todos os servidores${keepId?' (mantendo '+keepId+')':''}?`)) return;
+        loading(resultId, 'Saindo dos servidores...');
+        const data = await apiPost('/api/leave-guilds', { keepGuildId: keepId || undefined }, resultId);
+        setResult(resultId, `${data.left} servidores abandonados.`);
+    }
+
+    /* ===== CALL ===== */
+    let currentGuilds = [];
+    async function populateGuildSelect(guilds) {
+        if(!guilds) { const d=await apiGet('/api/guilds'); guilds=d.guilds; }
+        currentGuilds = guilds;
+        
+        // Popula select da aba Call
+        const selCall = document.getElementById('voiceGuildSelect');
+        if(selCall) {
+            selCall.innerHTML = '<option value="">Selecione um servidor...</option>';
+            guilds.forEach(g => { const o=document.createElement('option'); o.value=g.id; o.textContent=escapeHtml(g.name); selCall.appendChild(o); });
+        }
+
+        // Popula select da aba Farm (Voz)
+        const selFarm = document.getElementById('farmVoiceGuildSelect');
+        if(selFarm) {
+            selFarm.innerHTML = '<option value="">Selecione um servidor...</option>';
+            guilds.forEach(g => { const o=document.createElement('option'); o.value=g.id; o.textContent=escapeHtml(g.name); selFarm.appendChild(o); });
+        }
+    }
+    async function loadVoiceChannels() {
+        const guildId = document.getElementById('voiceGuildSelect').value;
+        if(!guildId) return;
+        const data = await apiGet(`/api/voice-channels/${guildId}`, 'voiceResult');
+        const sel1 = document.getElementById('voiceChannelSelect');
+        const sel2 = document.getElementById('voiceTargetSelect');
+        sel1.innerHTML = '<option value="">Canal origem</option>';
+        sel2.innerHTML = '<option value="">Canal destino</option>';
+        data.channels.forEach(c => {
+            const o1=document.createElement('option'); o1.value=c.id; o1.textContent=`${escapeHtml(c.name)} (${c.members})`; sel1.appendChild(o1);
+            const o2=document.createElement('option'); o2.value=c.id; o2.textContent=`${escapeHtml(c.name)} (${c.members})`; sel2.appendChild(o2);
+        });
+        setResult('voiceResult', `${data.channels.length} canais de voz carregados.`);
+    }
+    async function disconnectVoice() {
+        const channelId = document.getElementById('voiceChannelSelect').value;
+        if(!channelId){ setResult('voiceResult', '<span style="color:#fbbf24">Selecione um canal</span>'); return; }
+        loading('voiceResult', 'Desconectando...');
+        const data = await apiPost('/api/call/disconnect', { channelId }, 'voiceResult');
+        setResult('voiceResult', `${data.disconnected} usuários desconectados.`);
+    }
+    async function moveVoice() {
+        const from = document.getElementById('voiceChannelSelect').value;
+        const to = document.getElementById('voiceTargetSelect').value;
+        if(!from||!to){ setResult('voiceResult', '<span style="color:#fbbf24">Selecione origem e destino</span>'); return; }
+        loading('voiceResult', 'Movendo usuários...');
+        const data = await apiPost('/api/call/move', { fromChannelId:from, toChannelId:to }, 'voiceResult');
+        setResult('voiceResult', `${data.moved} usuários movidos.`);
+    }
+    async function pullAllToVoice() {
+        const target = document.getElementById('voiceTargetSelect').value;
+        const guildId = document.getElementById('voiceGuildSelect').value;
+        if(!target||!guildId){ setResult('voiceResult', '<span style="color:#fbbf24">Selecione servidor e canal destino</span>'); return; }
+        loading('voiceResult', 'Puxando todos...');
+        const data = await apiPost('/api/call/pull-all', { targetChannelId:target, guildId }, 'voiceResult');
+        setResult('voiceResult', `${data.pulled} usuários puxados.`);
+    }
+    async function muteVoice(mute) {
+        const channelId = document.getElementById('voiceChannelSelect').value;
+        if(!channelId){ setResult('voiceResult', '<span style="color:#fbbf24">Selecione um canal</span>'); return; }
+        loading('voiceResult', mute?'Mutando...':'Desmutando...');
+        const data = await apiPost('/api/call/mute', { channelId, mute }, 'voiceResult');
+        setResult('voiceResult', `${data.affected} usuários ${mute?'mutados':'desmutados'}.`);
+    }
+    async function startPingPong() {
+        const c1 = document.getElementById('pingChannel1').value.trim();
+        const c2 = document.getElementById('pingChannel2').value.trim();
+        if(!c1||!c2){ setResult('pingPongResult', '<span style="color:#fbbf24">Informe os dois canais</span>'); return; }
+        loading('pingPongResult', 'Iniciando ping-pong...');
+        const data = await apiPost('/api/call/repeat-move', { firstChannelId:c1, secondChannelId:c2 }, 'pingPongResult');
+        setResult('pingPongResult', `${escapeHtml(data.message)}`);
+    }
+    async function stopPingPong() {
+        const data = await apiPost('/api/call/repeat-move', { stop:true }, 'pingPongResult');
+        setResult('pingPongResult', data.success ? `Ping-pong parado.` : `<span style="color:#ff6b6b">${escapeHtml(data.error)}</span>`);
+    }
+    async function pingPongStatus() {
+        const data = await apiGet('/api/call/repeat-move-status', 'pingPongResult');
+        setResult('pingPongResult', data.active ? `Ativo — ${data.movedCount} movimentações` : `Inativo`);
+    }
+
+    /* ===== MONITOR ===== */
+    async function startMonitor() {
+        const userId = document.getElementById('monitorUserId').value.trim();
+        const webhook = document.getElementById('monitorWebhook').value.trim();
+        if(!userId||!webhook){ setResult('monitorResult', '<span style="color:#fbbf24">Informe usuário e webhook</span>'); return; }
+        loading('monitorResult', 'Iniciando monitoramento...');
+        const data = await apiPost('/api/monitor-user', { userId, webhookURL:webhook }, 'monitorResult');
+        setResult('monitorResult', `${escapeHtml(data.message)}`);
+    }
+    async function stopMonitor(targetId) {
+        const userId = targetId || document.getElementById('monitorUserId').value.trim();
+        if(!userId){ setResult('monitorResult', '<span style="color:#fbbf24">Informe o ID do usuário para parar</span>'); return; }
+        const data = await apiPost('/api/monitor-user', { userId, stop:true }, 'monitorResult');
+        if (data.success) {
+            setResult('monitorResult', `<span style="color:#86efac">✅ ${escapeHtml(data.message)}</span>`);
+            // Se estiver listando, atualiza a lista
+            if (document.getElementById('monitorResult').innerHTML.includes('Monitores ativos')) listMonitors();
+        } else {
+            setResult('monitorResult', `<span style="color:#ff6b6b">❌ ${escapeHtml(data.error)}</span>`);
+        }
+    }
+    async function listMonitors() {
+        loading('monitorResult', 'Buscando monitores...');
+        const data = await apiGet('/api/monitors', 'monitorResult');
+        if(!data.monitors.length){ setResult('monitorResult', '<span style="color:rgba(255,255,255,0.4)">Nenhum monitor ativo no momento.</span>'); return; }
+        
+        let html = `<div style="display:flex; flex-direction:column; gap:10px;">
+            <strong style="color:#fff; font-size:0.9rem; margin-bottom:4px; display:block;">Monitores Ativos:</strong>`;
+        
+        data.monitors.forEach(m => {
+            html += `
+            <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.03); padding:8px 12px; border-radius:10px; border:1px solid rgba(255,255,255,0.05);">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <div style="width:8px; height:8px; background:#86efac; border-radius:50%; box-shadow:0 0 8px #86efac;"></div>
+                    <span style="font-family:monospace; font-size:0.85rem; color:#fff;">${m.userId}</span>
+                </div>
+                <button class="btn" onclick="stopMonitor('${m.userId}')" style="padding:4px 8px; font-size:0.7rem; background:rgba(240, 71, 71, 0.1); color:#F04747; border:1px solid rgba(240, 71, 71, 0.2); height:auto;">
+                    Remover
+                </button>
+            </div>`;
+        });
+        
+        html += `</div>`;
+        setResult('monitorResult', html);
+    }
+
+    /* ===== FARM ===== */
+    async function startFarm() {
+        const channelId = document.getElementById('farmChannelId').value.trim();
+        const cycles = parseInt(document.getElementById('farmCycles').value) || 0;
+        if(!channelId){ setResult('farmResult', '<span style="color:#fbbf24">Informe o ID do canal</span>'); return; }
+        loading('farmResult', 'Iniciando farm...');
+        const data = await apiPost('/api/farm/kosame', { channelId, cycles }, 'farmResult');
+        setResult('farmResult', `Farm iniciado em <strong>${escapeHtml(data.message)}</strong><br>Ciclos: ${data.cycles} · Comandos: ${data.commands}`);
+    }
+    async function stopFarm() {
+        const data = await apiPost('/api/farm/kosame', { stop:true }, 'farmResult');
+        setResult('farmResult', data.success ? `Farm parado.` : `<span style="color:#ff6b6b">${escapeHtml(data.error)}</span>`);
+    }
+
+    /* ===== FARM DE VOZ (HORAS) ===== */
+    async function loadFarmVoiceChannels() {
+        const guildId = document.getElementById('farmVoiceGuildSelect').value;
+        if(!guildId) return;
+        loading('farmVoiceResult', 'Carregando calls...');
+        try {
+            const data = await apiGet(`/api/voice-channels/${guildId}`, 'farmVoiceResult');
+            const sel = document.getElementById('farmVoiceChannelSelect');
+            sel.innerHTML = '<option value="">Selecione a call...</option>';
+            if (data.channels && data.channels.length > 0) {
+                data.channels.forEach(c => {
+                    const o = document.createElement('option');
+                    o.value = c.id;
+                    o.textContent = `${escapeHtml(c.name)} (${c.members} em call)`;
+                    sel.appendChild(o);
+                });
+                setResult('farmVoiceResult', `${data.channels.length} canais de voz encontrados.`);
+            } else {
+                setResult('farmVoiceResult', '<span style="color:#fbbf24">Nenhum canal de voz encontrado ou sem permissão.</span>');
+            }
+        } catch(e) {
+            setResult('farmVoiceResult', `<span style="color:#ff6b6b">Erro ao carregar: ${e.message}</span>`);
+        }
+    }
+
+    async function connectVoiceFarm() {
+        const channelId = document.getElementById('farmVoiceChannelSelect').value;
+        if(!channelId){ setResult('farmVoiceResult', '<span style="color:#fbbf24">Selecione uma call primeiro!</span>'); return; }
+        loading('farmVoiceResult', 'Conectando na call...');
+        try {
+            const data = await apiPost('/api/voice-connect', { channelId }, 'farmVoiceResult');
+            if(data.success) {
+                setResult('farmVoiceResult', `<span style="color:#86efac">✔ ${data.message}</span>`);
+            } else {
+                setResult('farmVoiceResult', `<span style="color:#ff6b6b">Erro: ${data.error}</span>`);
+            }
+        } catch(e) {
+            setResult('farmVoiceResult', `<span style="color:#ff6b6b">Erro ao conectar: ${e.message}</span>`);
+        }
+    }
+
+    async function disconnectVoiceFarm() {
+        const guildId = document.getElementById('farmVoiceGuildSelect').value;
+        loading('farmVoiceResult', 'Saindo da call...');
+        try {
+            const data = await apiPost('/api/voice-disconnect', { guildId }, 'farmVoiceResult');
+            if(data.success) {
+                setResult('farmVoiceResult', `<span style="color:#86efac">✔ ${data.message}</span>`);
+            } else {
+                setResult('farmVoiceResult', `<span style="color:#ff6b6b">Erro: ${data.error}</span>`);
+            }
+        } catch(e) {
+            setResult('farmVoiceResult', `<span style="color:#ff6b6b">Erro ao desconectar: ${e.message}</span>`);
+        }
+    }
+
+    /* ===== MISSÕES ===== */
+    async function loadQuests() {
+        const grid = document.getElementById('questsGrid');
+        const loading = document.getElementById('questsLoading');
+        const result = document.getElementById('questsResult');
+        if(!grid) return;
+        loading.style.display = 'flex';
+        grid.innerHTML = '';
+        clearResult('questsResult');
+        try {
+            const data = await apiGet('/api/quests');
+            loading.style.display = 'none';
+            if(!data.quests || data.quests.length === 0) {
+                setResult('questsResult', 'Nenhuma missão disponível. Vá no Discord e aceite uma missão primeiro!');
+                return;
+            }
+            const now = new Date();
+            let hasEnrolled = false;
+            data.quests.forEach(q => {
+                const cfg = q.config;
+                if(!cfg) return;
+                const expires = new Date(cfg.expires_at);
+                if(expires < now) return;
+                
+                // SÓ mostrar missões ACEITAS (enrolled) mas NÃO completadas/claimadas
+                const us = q.user_status;
+                const isEnrolled = us && us.enrolled_at;
+                const isCompleted = us && us.completed_at;
+                const isClaimed = us && us.claimed_at;
+                
+                // Só mostrar se: enrolled=true E completed=null E claimed=null
+                if (!isEnrolled || isCompleted || isClaimed) return;
+                
+                hasEnrolled = true;
+                const hero = cfg.assets?.hero ? `https://cdn.discordapp.com/${cfg.assets.hero}` : '';
+                const thumbUrl = hero;
+                const logotype = cfg.assets?.logotype_light || cfg.assets?.logotype_dark || '';
+                const logotypeUrl = logotype ? `https://cdn.discordapp.com/${logotype}` : '';
+                const title = cfg.messages?.quest_name || 'Missão';
+                const game = cfg.messages?.game_title || '';
+                const publisher = cfg.messages?.game_publisher || '';
+                const reward = cfg.rewards_config?.rewards?.[0];
+                let rewardHtml = '';
+                if(reward) {
+                    const rewardName = reward.messages?.name || 'Recompensa';
+                    const rewardImg = reward.asset ? `https://cdn.discordapp.com/${reward.asset}` : '';
+                    const isOrb = reward.type === 4 || /\bOrb\b/i.test(rewardName);
+                    const orbIcon = isOrb ? `<img src="https://cdn.discordapp.com/assets/content/fb761d9c206f93cd8c4e7301798abe3f623039a4054f2e7accd019e1bb059fc8.webm?format=webp" style="width:28px;height:28px;object-fit:contain;border-radius:50%;" alt="">` : '';
+                    rewardHtml = `<div class="quest-reward">${orbIcon}${!isOrb && rewardImg?`<img src="${rewardImg}" onerror="this.style.display='none'" alt="">`:''}<span>${escapeHtml(rewardName)}</span></div>`;
+                }
+                
+                const card = document.createElement('div');
+                card.className = 'quest-card';
+                const firstLetter = title.replace(/[^a-zA-Z]/g, '')[0] || '?';
+                card.innerHTML = `
+                    <div class="quest-thumb-wrap">
+                        ${thumbUrl?`<img src="${thumbUrl}" onerror="this.style.display='none';this.parentElement.querySelector('.thumb-fallback').style.display='flex';" alt="">`:''}
+                        ${logotypeUrl?`<img src="${logotypeUrl}" class="quest-logotype" onerror="this.style.display='none'" alt="">`:''}
+                        <div class="thumb-fallback" style="display:${thumbUrl?'none':'flex'};">${escapeHtml(firstLetter)}</div>
+                    </div>
+                    <div class="quest-body">
+                        <div class="quest-title">${escapeHtml(title)}</div>
+                        <div class="quest-game">${escapeHtml(game)}${publisher?` · ${escapeHtml(publisher)}`:''}</div>
+                        <div style="font-size:.75rem;color:rgba(255,255,255,0.35);margin-bottom:10px;">Expira: ${expires.toLocaleDateString('pt-BR')}</div>
+                        ${rewardHtml}
+                        <div class="quest-actions">
+                            <button class="btn btn-black" onclick="completeQuest('${q.id}', this)">Completar</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+            if(!hasEnrolled) {
+                setResult('questsResult', 'Nenhuma missão aceita encontrada. Vá no Discord, aceite uma missão e ela aparecerá aqui!');
+            }
+        } catch(e) {
+            loading.style.display = 'none';
+            setResult('questsResult', `<span style="color:#ff6b6b">Erro ao carregar missões: ${escapeHtml(e.message)}</span>`);
+        }
+    }
+    function extractErrorMessage(data) {
+        if (!data) return 'Erro desconhecido';
+        if (typeof data.error === 'string') return data.error;
+        if (data.error && typeof data.error === 'object') {
+            if (data.error.message) {
+                let msg = data.error.message;
+                if (data.error.retry_after) msg += ` (aguarde ${Math.ceil(data.error.retry_after)}s)`;
+                return msg;
+            }
+            return JSON.stringify(data.error);
+        }
+        if (typeof data.message === 'string') return data.message;
+        return 'Erro desconhecido';
+    }
+
+    async function completeQuest(questId, btn) {
+        // Verifica captcha
+        const turnstileResponse = document.querySelector('input[name="cf-turnstile-response"]')?.value || '';
+        if (!turnstileResponse) {
+            showToast('Resolva o captcha antes de completar a missão.', 'error', 4000);
+            return;
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner" style="width:14px;height:14px;border-width:2px;"></span> Aceitando...';
+        try {
+            // 1. Enroll (aceitar missão)
+            const enrollData = await apiPost(`/api/quests/${questId}/enroll`, {});
+            if (!enrollData.success && !enrollData.alreadyEnrolled) {
+                throw new Error(extractErrorMessage(enrollData) || 'Falha ao aceitar missão');
+            }
+
+            // 2. Completar missão
+            btn.innerHTML = '<span class="spinner" style="width:14px;height:14px;border-width:2px;"></span> Completando...';
+            const r = await fetch(`/api/quests/${questId}/complete`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Site-Token': localStorage.getItem('site_token') || ''
+                },
+                body: JSON.stringify({ cfTurnstileResponse: turnstileResponse })
+            });
+            const data = await r.json();
+
+            // Se for background (202), inicia polling de status
+            if (r.status === 202 || data.background) {
+                showToast(data.message || 'Missão iniciada em background.', 'success', 4000);
+                btn.innerHTML = '<span class="spinner" style="width:14px;height:14px;border-width:2px;"></span> 0%';
+
+                const pollInterval = setInterval(async () => {
+                    try {
+                        const statusRes = await fetch(`/api/quests/${questId}/status`, {
+                            headers: { 'X-Site-Token': localStorage.getItem('site_token') || '' }
+                        });
+                        const job = await statusRes.json();
+
+                        if (job.status === 'running') {
+                            const pct = job.target > 0 ? Math.round((job.progress / job.target) * 100) : 0;
+                            btn.innerHTML = `<span class="spinner" style="width:14px;height:14px;border-width:2px;"></span> ${pct}%`;
+                        } else if (job.status === 'completed') {
+                            clearInterval(pollInterval);
+                            btn.disabled = false;
+                            btn.textContent = 'Completar';
+                            showToast('Missão completada! Vá no Discord resgatar sua recompensa.', 'success', 5000);
+                            setTimeout(() => loadQuests(), 1500);
+                        } else if (job.status === 'failed') {
+                            clearInterval(pollInterval);
+                            btn.disabled = false;
+                            btn.textContent = 'Completar';
+                            showToast(job.message || 'Falha ao completar missão em background.', 'error', 6000);
+                        }
+                    } catch(e) {}
+                }, 5000); // polling a cada 5 segundos
+
+                // Para o polling automaticamente depois de 35 minutos (limite de segurança)
+                setTimeout(() => clearInterval(pollInterval), 2100000);
+                return;
+            }
+
+            if(data.success) {
+                showToast('Missão completada!', 'success', 3000);
+                setTimeout(() => loadQuests(), 1500);
+            } else {
+                btn.disabled = false;
+                btn.textContent = 'Completar';
+                let msg = extractErrorMessage(data) || 'Não foi possível completar a missão automaticamente.';
+                if (data.strategy) msg += ` (Estratégia: ${data.strategy})`;
+                showToast(msg, 'error', 6000);
+            }
+        } catch(e) {
+            btn.disabled = false;
+            btn.textContent = 'Completar';
+            showToast('Erro: ' + e.message, 'error', 5000);
+        }
+    }
+
+    function generateQuestCode(questId, taskType, target) {
+        return `// Auto-completar missão Discord
+    // Cole no console do Discord Desktop (Ctrl+Shift+I)
+
+    let wpRequire = webpackChunkdiscord_app.push([[Symbol()], {}, r => r]);
+    webpackChunkdiscord_app.pop();
+
+    let QuestsStore = Object.values(wpRequire.c).find(x => x?.exports?.A?.__proto__?.getQuest).exports.A;
+    let RunningGameStore = Object.values(wpRequire.c).find(x => x?.exports?.Ay?.getRunningGames).exports.Ay;
+    let FluxDispatcher = Object.values(wpRequire.c).find(x => x?.exports?.h?.__proto__?.flushWaitQueue).exports.h;
+    let api = Object.values(wpRequire.c).find(x => x?.exports?.Bo?.get).exports.Bo;
+
+    let quest = QuestsStore.getQuest('${questId}');
+    if (!quest) { console.log('Quest não encontrada!'); }
+
+    const applicationId = quest.config.application.id;
+    const applicationName = quest.config.application.name;
+    const secondsNeeded = ${target};
+    let secondsDone = quest.userStatus?.progress?.${taskType}?.value ?? 0;
+
+    console.log('Iniciando auto-completar para:', applicationName);
+    console.log('Progresso atual:', secondsDone, '/', secondsNeeded);
+
+    const pid = Math.floor(Math.random() * 30000) + 1000;
+
+    api.get({url: \`/applications/public?application_ids=\${applicationId}\`}).then(res => {
+        const appData = res.body[0];
+        const exeName = appData.executables?.find(x => x.os === "win32")?.name?.replace(">","") ?? appData.name.replace(/[\\/\\\\:*?"<>|]/g, "");
+        
+        const fakeGame = {
+            cmdLine: \`C:\\\\Program Files\\\\\${appData.name}\\\\\${exeName}\`,
+            exeName,
+            exePath: \`c:/program files/\${appData.name.toLowerCase()}/\${exeName}\`,
+            hidden: false,
+            isLauncher: false,
+            id: applicationId,
+            name: appData.name,
+            pid: pid,
+            pidPath: [pid],
+            processName: appData.name,
+            start: Date.now(),
+        };
+        
+        const realGames = RunningGameStore.getRunningGames();
+        const fakeGames = [fakeGame];
+        const realGetRunningGames = RunningGameStore.getRunningGames;
+        const realGetGameForPID = RunningGameStore.getGameForPID;
+        
+        RunningGameStore.getRunningGames = () => fakeGames;
+        RunningGameStore.getGameForPID = (pid) => fakeGames.find(x => x.pid === pid);
+        FluxDispatcher.dispatch({type: "RUNNING_GAMES_CHANGE", removed: realGames, added: [fakeGame], games: fakeGames});
+        
+        let fn = data => {
+            let progress = Math.floor(data.userStatus.progress.${taskType}.value);
+            console.log(\`Progresso: \${progress}/\${secondsNeeded}\`);
+            
+            if(progress >= secondsNeeded) {
+                console.log("Missão completada! Vá resgatar sua recompensa.");
+                RunningGameStore.getRunningGames = realGetRunningGames;
+                RunningGameStore.getGameForPID = realGetGameForPID;
+                FluxDispatcher.dispatch({type: "RUNNING_GAMES_CHANGE", removed: [fakeGame], added: [], games: []});
+                FluxDispatcher.unsubscribe("QUESTS_SEND_HEARTBEAT_SUCCESS", fn);
+            }
+        };
+        FluxDispatcher.subscribe("QUESTS_SEND_HEARTBEAT_SUCCESS", fn);
+        
+        console.log(\`Jogo simulado: \${applicationName}. Aguarde ~\${Math.ceil((secondsNeeded - secondsDone) / 60)} minutos.\`);
+    });
+    `;
+    }
+
+    function copyToClipboard(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+    }
+
+    /* ===== CUSTOM MODAL ===== */
+    function createModalOverlay() {
+        const overlay = document.createElement('div');
+        overlay.className = 'gh-modal-overlay';
+        overlay.innerHTML = `
+            <div class="gh-modal" role="dialog" aria-modal="true">
+                <div class="gh-modal-text"></div>
+                <div class="gh-modal-actions">
+                    <button class="gh-modal-btn secondary" data-action="cancel">Cancelar</button>
+                    <button class="gh-modal-btn primary" data-action="ok">OK</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+        void overlay.offsetWidth;
+        overlay.classList.add('open');
+        return overlay;
+    }
+
+    function showAlert(message) {
+        return new Promise((resolve) => {
+            const overlay = createModalOverlay();
+            const modal = overlay.querySelector('.gh-modal');
+            modal.querySelector('.gh-modal-text').textContent = message;
+            const cancelBtn = modal.querySelector('[data-action="cancel"]');
+            cancelBtn.style.display = 'none';
+            const okBtn = modal.querySelector('[data-action="ok"]');
+            okBtn.textContent = 'OK';
+
+            const close = () => {
+                overlay.classList.remove('open');
+                setTimeout(() => overlay.remove(), 250);
+                resolve();
+            };
+
+            okBtn.addEventListener('click', close);
+            overlay.addEventListener('click', (e) => {
+                if(e.target === overlay) close();
+            });
+            const onKey = (e) => {
+                if(e.key === 'Escape' || e.key === 'Enter') {
+                    document.removeEventListener('keydown', onKey);
+                    close();
+                }
+            };
+            document.addEventListener('keydown', onKey);
+        });
+    }
+
+    function showConfirm(message) {
+        return new Promise((resolve) => {
+            const overlay = createModalOverlay();
+            const modal = overlay.querySelector('.gh-modal');
+            modal.querySelector('.gh-modal-text').textContent = message;
+            const cancelBtn = modal.querySelector('[data-action="cancel"]');
+            const okBtn = modal.querySelector('[data-action="ok"]');
+            okBtn.textContent = 'OK';
+            cancelBtn.textContent = 'Cancelar';
+
+            let resolved = false;
+            const close = (result) => {
+                if(resolved) return;
+                resolved = true;
+                overlay.classList.remove('open');
+                setTimeout(() => overlay.remove(), 250);
+                resolve(result);
+            };
+
+            okBtn.addEventListener('click', () => close(true));
+            cancelBtn.addEventListener('click', () => close(false));
+            overlay.addEventListener('click', (e) => {
+                if(e.target === overlay) close(false);
+            });
+            const onKey = (e) => {
+                if(e.key === 'Escape') {
+                    document.removeEventListener('keydown', onKey);
+                    close(false);
+                } else if(e.key === 'Enter') {
+                    document.removeEventListener('keydown', onKey);
+                    close(true);
+                }
+            };
+            document.addEventListener('keydown', onKey);
+        });
+    }
+
+    /* ===== WELCOME MODALS ===== */
+    function createWelcomeOverlay() {
+        const overlay = document.createElement('div');
+        overlay.className = 'welcome-modal-overlay';
+        document.body.appendChild(overlay);
+        void overlay.offsetWidth;
+        overlay.classList.add('open');
+        return overlay;
+    }
+
+    async function showAbuseWarning() {
+        if (sessionStorage.getItem('gh_warning_seen')) return;
+        return new Promise((resolve) => {
+            const overlay = createWelcomeOverlay();
+            overlay.innerHTML = `
+                <div class="welcome-modal" role="dialog" aria-modal="true">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <h3>Use com moderação</h3>
+                    <p>O Discord detecta padrões de uso excessivo. Evite abusar das ferramentas para não arriscar sua conta.</p>
+                    <div class="welcome-modal-actions">
+                        <button class="welcome-modal-btn primary" data-action="ok">Entendi</button>
+                    </div>
+                </div>
+            `;
+            const close = () => {
+                overlay.classList.remove('open');
+                setTimeout(() => overlay.remove(), 300);
+                sessionStorage.setItem('gh_warning_seen', '1');
+                resolve();
+            };
+            overlay.querySelector('[data-action="ok"]').addEventListener('click', close);
+            overlay.addEventListener('click', (e) => { if(e.target === overlay) close(); });
+        });
+    }
+
+    async function showDiscordInvite() {
+        if (sessionStorage.getItem('gh_discord_seen')) return;
+        return new Promise((resolve) => {
+            const overlay = createWelcomeOverlay();
+            overlay.innerHTML = `
+                <div class="welcome-modal" role="dialog" aria-modal="true">
+                    <img src="https://ghosthub.shardweb.app/logo.png" alt="Ghost hub" class="welcome-modal-logo">
+                    <h3>Ghost hub</h3>
+                    <p>Entre no servidor oficial para suporte, novidades e conversar com a comunidade.</p>
+                    <div class="welcome-modal-actions">
+                        <a href="https://discord.gg/GAZHndCknR" target="_blank" class="welcome-modal-btn discord" data-action="join">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.418 2.157-2.418 1.21 0 2.176 1.095 2.157 2.418 0 1.334-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.418 2.157-2.418 1.21 0 2.176 1.095 2.157 2.418 0 1.334-.947 2.419-2.157 2.419z"/></svg>
+                            Discord
+                        </a>
+                        <button class="welcome-modal-btn secondary" data-action="later">Fechar</button>
+                    </div>
+                </div>
+            `;
+            const close = () => {
+                overlay.classList.remove('open');
+                setTimeout(() => overlay.remove(), 300);
+                sessionStorage.setItem('gh_discord_seen', '1');
+                resolve();
+            };
+            overlay.querySelector('[data-action="later"]').addEventListener('click', close);
+            overlay.querySelector('[data-action="join"]').addEventListener('click', () => {
+                sessionStorage.setItem('gh_discord_seen', '1');
+                setTimeout(() => {
+                    overlay.classList.remove('open');
+                    setTimeout(() => overlay.remove(), 300);
+                    resolve();
+                }, 150);
+            });
+            overlay.addEventListener('click', (e) => { if(e.target === overlay) close(); });
+        });
+    }
+
+    /* ===== INIT ===== */
+    (async () => {
+        await showAbuseWarning();
+        await showDiscordInvite();
+    })();
+    loadStatus();
+    populateGuildSelect();
+    loadQuests();
+    setTimeout(() => toggleDMSelect('dm'), 1000);
+    </script>
+    <script src="ads.js"></script>
+    </body>
+    </html>

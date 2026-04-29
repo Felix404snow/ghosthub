@@ -1,46 +1,52 @@
 # Ghost Hub
 
-![Ghost Hub Logo](./ghosthub.png)
+## O que é?
 
-**Ghost Hub** é uma plataforma web para automação de missões do Discord, visualização de perfis, Orbs, badges e ferramentas exclusivas.
+**Ghost Hub** é uma plataforma completa para automação de missões do Discord, gerenciamento de perfis, visualização de badges, Orbs e ferramentas exclusivas.
 
-## Funcionalidades
-
-- **Auto Quest Discord** — Complete missões do Discord automaticamente
-- **Perfil & Badges** — Visualize informações detalhadas de perfil do Discord
-- **Orbs** — Acompanhe e gerencie seus Orbs
-- **Painel Web** — Interface moderna e responsiva para gerenciamento
-
-## Estrutura do Projeto
+## Arquivos
 
 | Arquivo | Descrição |
 |---------|-----------|
-| `script.js` | Backend principal (servidor Express + Discord selfbot) |
-| `index.html` | Página inicial do site |
-| `login.html` | Tela de login |
-| `dashboard.html` | Painel do usuário |
-| `quest.js` | Lógica de automação de missões |
-| `discord-workers.js` | Sistema de workers multi-thread para Discord |
-| `discord-worker-thread.js` | Thread worker para requisições Discord |
-| `teste-api.js` | Testes de integração com API |
-| `package.json` | Dependências do projeto |
-| `ghosthub.png` | Logo oficial do Ghost Hub |
+| `script.js` | **Backend principal — contém tudo.** Servidor Express, autenticação JWT, rate limiting, circuit breaker, integração com Discord selfbot, sistema de quests, workers multi-thread e proxy rotativo. |
+| `README.md` | Este arquivo — documentação do projeto |
 
-## Tecnologias
+## O que o script.js faz?
 
-- **Node.js** + **Express**
-- **Discord.js Selfbot v13**
-- **HTML5 / CSS3 / JavaScript**
-- **JWT** para autenticação segura
-- **Sistema de rate limit** multi-camada
+- **Servidor Web (Express)** com sessões JWT de 1 hora
+- **Login com token Discord** via selfbot (discord.js-selfbot-v13)
+- **Automação de missões (Quests)** do Discord — watch video, play on desktop, stream, etc.
+- **Rate Limiting multi-camada** — por IP, sessão, token Discord e global
+- **Circuit Breaker** — protege contra falhas em cascata
+- **Workers multi-thread** — filas por rota com retry automático em 429
+- **Proxy rotativo** — alterna entre proxies para evitar bloqueios
+- **Dashboard web** — painel para controle visual
+
+## Como usar
+
+```bash
+npm install
+node script.js
+```
+
+O servidor sobe na porta **80** (ou na porta definida em `PORT`).
 
 ## Segurança
 
 - Tokens Discord nunca são expostos ao frontend
-- Sessões JWT com expiração de 1 hora
-- Rate limiting por IP, sessão e token Discord
-- Circuit breaker para proteção contra falhas
+- Sessões JWT com expiração automática
+- Rate limit por IP, sessão e token
+- Proteção contra brute force no login
 
-## Licença
+## Stack
 
-Projeto privado — Ghost Hub.
+- Node.js
+- Express
+- discord.js-selfbot-v13
+- JWT (assinatura HMAC própria)
+- worker_threads
+- node-fetch
+
+---
+
+**Ghost Hub** — Projeto privado.

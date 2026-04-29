@@ -11,7 +11,7 @@
 
 | Arquivo | Descrição |
 |---------|-----------|
-| `script.js` | **Backend principal — contém tudo.** Servidor Express, autenticação JWT, rate limiting, circuit breaker, integração com Discord selfbot, sistema de quests, workers multi-thread e proxy rotativo. |
+| `script.js` | **Backend principal.** Faz missões do Discord automaticamente, lista Orbs, mostra badges e perfil. |
 | `README.md` | Este arquivo — documentação do projeto |
 
 ## O que o script.js faz?

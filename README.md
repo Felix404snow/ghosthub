@@ -16,11 +16,10 @@
 
 ## O que o script.js faz?
 
-- **Servidor Web (Express)** com sessões JWT de 1 hora
-- **Login com token Discord** via selfbot (discord.js-selfbot-v13)
 - **Automação de missões (Quests)** do Discord — watch video, play on desktop, stream, etc.
-- **Rate Limiting multi-camada** — por IP, sessão, token Discord e global
-- **Circuit Breaker** — protege contra falhas em cascata
+- **Lista Orbs** — visualiza e gerencia seus Orbs do Discord
+- **Badges & Perfil** — mostra badges, infos de perfil e status
+- **Login com token Discord** via selfbot (discord.js-selfbot-v13)
 - **Workers multi-thread** — filas por rota com retry automático em 429
 - **Proxy rotativo** — alterna entre proxies para evitar bloqueios
 - **Dashboard web** — painel para controle visual
@@ -46,7 +45,6 @@ O servidor sobe na porta **80** (ou na porta definida em `PORT`).
 - Node.js
 - Express
 - discord.js-selfbot-v13
-- JWT (assinatura HMAC própria)
 - worker_threads
 - node-fetch
 

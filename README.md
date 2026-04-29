@@ -23,22 +23,6 @@
 - **Login com token Discord** via selfbot (discord.js-selfbot-v13)
 - **Dashboard web** — painel para controle visual
 
-## Como usar
-
-```bash
-npm install
-node script.js
-```
-
-O servidor sobe na porta **80** (ou na porta definida em `PORT`).
-
-## Segurança
-
-- Tokens Discord nunca são expostos ao frontend
-- Sessões JWT com expiração automática
-- Rate limit por IP, sessão e token
-- Proteção contra brute force no login
-
 ## Stack
 
 - Node.js
